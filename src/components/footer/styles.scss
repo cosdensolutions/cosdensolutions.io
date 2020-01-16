@@ -13,6 +13,11 @@
   span {
     font-weight: bold;
     margin-right: 5px;
+
+    &.main-purple {
+      color: $main-purple;
+      margin-right: 5px;
+    }
   }
 
   img {

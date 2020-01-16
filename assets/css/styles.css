@@ -120,6 +120,10 @@ h2 {
   font-weight: bold;
   margin-right: 5px;
 }
+.footer span.main-purple {
+  color: #a797ee;
+  margin-right: 5px;
+}
 .footer img {
   width: 70px;
   margin-right: 5px;
