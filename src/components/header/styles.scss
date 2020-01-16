@@ -1,0 +1,121 @@
+// components - header
+//
+
+.header {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+.header__content {
+  @include flex-rw-sb-c;
+  max-width: 1500px;
+  margin: auto;
+}
+
+.header__logo {
+  width: 20%;
+
+  img {
+    width: 250px;
+  }
+}
+
+.header__menu {
+  @include flex-rw-fe-c;
+  width: 80%;
+
+  @media (max-width: $large) {
+    display: none;
+  }
+
+  a {
+    @include ease-03;
+    color: black;
+    margin-left: 40px;
+    text-decoration: none;
+
+    &:visited {
+      color: black;
+    }
+
+    &:hover {
+      color: $main-purple;
+    }
+
+    &.is-active {
+      color: $main-purple;
+    }
+  }
+}
+
+.header__mobile-menu-toggle {
+  display: none;
+
+  @media (max-width: $large) {
+    display: block;
+    font-size: 24px;
+  }
+}
+
+.header__mobile-menu {
+  display: none;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  position: fixed;
+  top: 0;
+  right: -80%;
+  background-color: white;
+  width: 70%;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 100vh;
+
+  @media (max-width: $large) {
+    display: block;
+  }
+}
+
+.header__mobile-menu-header {
+  text-align: right;
+  margin-bottom: 40px;
+}
+
+.header__mobile-menu-links {
+  @include flex-cl-fs-fs;
+  margin-bottom: 40px;
+
+  a {
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: black;
+
+    &.active {
+      color: $main-purple;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:visited {
+      color: black;
+
+      &.active {
+        color: $main-purple;
+      }
+    }
+  }
+}
+
+.header__mobile-menu-logo {
+  img {
+    width: 80%;
+    max-width: 200px;
+  }
+}

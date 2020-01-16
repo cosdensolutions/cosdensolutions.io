@@ -1,0 +1,52 @@
+// styles - mixins
+//
+
+// transitions ===========
+@mixin ease-03 {
+  transition: all 0.3s ease;
+}
+
+// shadows ===============
+@mixin shadow-header {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+@mixin shadow {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+@mixin shadow-light {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@mixin shadow-small {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+// containers ============
+@mixin container-styles {
+  position: relative;
+  box-sizing: border-box;
+  max-width: 1500px;
+  margin: auto;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+// paddings ==============
+@mixin top-padding {
+  padding-top: 60px;
+}
+
+// buttons ===============
+@mixin button-base-styles {
+  display: block;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}

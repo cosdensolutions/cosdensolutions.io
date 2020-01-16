@@ -1,0 +1,143 @@
+// layout - coaching
+//
+
+.coaching {
+  @include top-padding;
+}
+
+.coaching__section-bg {
+  &.main-purple {
+    background: linear-gradient(to left, $main-purple, $main-purple-dark);
+    position: relative;
+    color: white;
+
+    p {
+      color: white;
+    }
+  }
+
+  &.white {
+    background-color: white;
+  }
+
+  &.light-purple {
+    background-color: $light-purple;
+    position: relative;
+  }
+}
+
+.coaching__section {
+  @include container-styles;
+  @include flex-rw-sb-c;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  @media (max-width: $large) {
+    @include flex-cl-c-c;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    &.first {
+      flex-direction: column-reverse;
+      padding-top: 0px;
+    }
+  }
+
+  &.column {
+    flex-direction: column;
+  }
+
+  .program {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+
+    .program-step {
+      margin-bottom: 100px;
+
+      @media (max-width: $large) {
+        margin-bottom: 50px;
+      }
+
+      &:last-child {
+        margin-bottom: 50px;
+      }
+
+      .number {
+        font-size: 72px;
+        color: $black-10;
+      }
+    }
+  }
+}
+
+.coaching__section-image {
+  @include flex-rw-fe-c;
+  width: 50%;
+  margin-left: 20px;
+
+  @media (max-width: $large) {
+    @include flex-rw-c-c;
+    width: 100%;
+    margin: 0;
+  }
+
+  img {
+    max-width: 400px;
+    width: 100%;
+  }
+}
+
+.coaching__section-content {
+  width: 50%;
+  margin-right: 20px;
+
+  @media (max-width: $large) {
+    @include flex-cl-c-c;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.coaching__section-headline {
+  margin-bottom: 20px;
+
+  &.center {
+    text-align: center;
+  }
+
+  @media (max-width: $large) {
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    color: $main-purple;
+  }
+
+  h2 {
+    color: $black-50;
+  }
+}
+
+.coaching__section-subheadline {
+  margin-bottom: 20px;
+}
+
+.coaching__schedule-call {
+  @include flex-rw-sb-c;
+  width: 100%;
+
+  @media (max-width: $large) {
+    @include flex-cl-c-c;
+    text-align: center;
+
+    h1 {
+      margin-bottom: 40px;
+    }
+
+    button {
+      margin-bottom: 30px;
+    }
+  }
+}

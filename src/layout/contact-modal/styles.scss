@@ -1,0 +1,102 @@
+// components - modal
+//
+
+.modal__background {
+  @include flex-cl-c-c;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.modal__container {
+  @include shadow;
+  @include flex-rw-sb-c;
+  max-width: 1000px;
+  padding: 40px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: white;
+  position: relative;
+  transform: translateY(-150vh);
+  transition: all 0.3s ease;
+
+  @media (max-width: $large) {
+    min-width: unset;
+    width: 90%;
+    padding: 40px 20px;
+    margin: auto;
+  }
+
+  .text-input {
+    margin-bottom: 20px;
+  }
+}
+
+.modal__left {
+  width: 50%;
+
+  @media (max-width: $large) {
+    display: none;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.modal__right {
+  width: 50%;
+
+  @media (max-width: $large) {
+    width: 100%;
+  }
+}
+
+.modal__headline {
+  text-align: center;
+  margin-bottom: 40px;
+
+  a {
+    text-decoration: none;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  small {
+    color: $black-50;
+  }
+}
+
+.modal__form {
+  @include flex-cl-fs-c;
+  width: 100%;
+  position: relative;
+
+  .text-area {
+    margin-bottom: 40px;
+  }
+
+  .button {
+    @include shadow-small;
+  }
+}
+
+.error {
+  position: absolute;
+  bottom: -30px;
+  color: red;
+}
+
+.message {
+  position: absolute;
+  bottom: -30px;
+  color: green;
+}

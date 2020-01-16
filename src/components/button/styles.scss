@@ -1,0 +1,45 @@
+// Components - Button
+//
+
+.button {
+  @include button-base-styles;
+  @include ease-03;
+  position: relative;
+  color: white;
+  background-color: $main-purple;
+  text-transform: uppercase;
+  min-width: 200px;
+
+  &:hover {
+    background-color: $main-purple-dark;
+  }
+
+  &.is-secondary {
+    background-color: white;
+    color: black;
+
+    &:hover {
+      background-color: $white-hover;
+    }
+  }
+
+  .indicator {
+    position: absolute;
+    left: 10px;
+    color: $black-50;
+  }
+
+  &.is-mouse-down {
+    transform: translateY(3px);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  &.is-mouse-up {
+    transform: translateY(0px);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  i {
+    margin-right: 10px;
+  }
+}
