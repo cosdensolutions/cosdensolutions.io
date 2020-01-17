@@ -28,7 +28,7 @@ def contact():
         raise RequestError('Please enter a valid email address', 401)
 
     msg = MIMEText(request.form['message'])
-    msg['Subject'] = "I'd like to get in touch"
+    msg['Subject'] = "New Message | Cosden Solutions"
     msg['From'] = "contact@cosdensolutions.io"
     msg['To'] = "contact@cosdensolutions.io"
     msg['Reply-To'] = request.form['email']
