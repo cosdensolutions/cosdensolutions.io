@@ -57,22 +57,23 @@ const Development = (props) => {
             <div className="projects-container">
               <div className="project">
                 <div className="project-image left">
-                  <img src="/assets/img/development/projects-convert.png" />
+                  <img src="/assets/img/development/projects-remote.png" />
                 </div>
 
                 <div className="project-content">
-                  <h2>Let's Convert</h2>
+                  <h2>Remote Projects</h2>
                   <p>
-                    This project consisted of building an image converter that
-                    would allow users to efficiently transform one image format
-                    to another. It included 9 different conversion formats, a
-                    fully integrated payment system with enforced limits and
-                    variable tiers, a custom built api to allow 3rd parties to
-                    convert easily, and a fully custom user dashboard.
+                    This project consisted of building a remote "job" board that
+                    was niched down to only contract projects. It included the
+                    ability for companies to post projects on the platform,
+                    enter the respective tags they want to the post to be
+                    categorized by, and select any restrictions they might have
+                    as to who they want to hire. It also included a payment
+                    processing integration as this was a paid product.
                   </p>
                   <a
                     className="button"
-                    href="https://www.letsconvert.app"
+                    href="https://remoteprojects.io"
                     target="_blank"
                   >
                     View Project
@@ -130,6 +131,35 @@ const Development = (props) => {
 
               <div className="project mobile-inverted">
                 <div className="project-content">
+                  <h2>Let's Convert</h2>
+                  <p>
+                    This project consisted of building an image converter that
+                    would allow users to efficiently transform one image format
+                    to another. It included 9 different conversion formats, a
+                    fully integrated payment system with enforced limits and
+                    variable tiers, a custom built api to allow 3rd parties to
+                    convert easily, and a fully custom user dashboard.
+                  </p>
+                  <a
+                    className="button"
+                    href="https://www.letsconvert.app"
+                    target="_blank"
+                  >
+                    View Project
+                  </a>
+                </div>
+
+                <div className="project-image right">
+                  <img src="/assets/img/development/projects-convert.png" />
+                </div>
+              </div>
+
+              <div className="project">
+                <div className="project-image left">
+                  <img src="/assets/img/development/projects-start.png" />
+                </div>
+
+                <div className="project-content">
                   <h2>st-Art Amsterdam</h2>
                   <p>
                     This project consisted of building an online art gallery
@@ -146,10 +176,6 @@ const Development = (props) => {
                   >
                     View Project
                   </a>
-                </div>
-
-                <div className="project-image right">
-                  <img src="/assets/img/development/projects-start.png" />
                 </div>
               </div>
             </div>

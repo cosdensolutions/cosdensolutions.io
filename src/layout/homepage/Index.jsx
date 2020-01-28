@@ -225,6 +225,7 @@ const Homepage = (props) => {
               >
                 <img src="/assets/img/homepage/st-art.png" />
                 <img src="/assets/img/homepage/kiid.png" />
+                <img src="/assets/img/homepage/remoteprojects.png" />
                 <img src="/assets/img/homepage/tob.png" />
                 <img src="/assets/img/homepage/protos.png" />
                 <img src="/assets/img/homepage/letsconvert.png" />
