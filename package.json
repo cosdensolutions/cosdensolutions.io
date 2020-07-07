@@ -16,7 +16,7 @@
     "css-loader": "^3.4.0",
     "file-loader": "^5.0.2",
     "i": "^0.3.6",
-    "npm": "^6.13.4",
+    "npm": "^6.14.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-multi-carousel": "^2.5.0",
