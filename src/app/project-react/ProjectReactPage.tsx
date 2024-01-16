@@ -1,13 +1,10 @@
-import Image from 'next/image';
-
-import ContactSection from '@/components/ContactSection';
 import MetricsSection from '@/components/MetricsSection';
-import SolutionsSection from '@/components/SolutionsSection';
 import LinkButton from '@/components/ui/LinkButton';
 import Separator from '@/components/ui/Separator';
-import { env } from '@/utils/env';
+import Image from 'next/image';
+import { env } from 'process';
 
-export default function Home() {
+export default function ProjectReactPage() {
   return (
     <main>
       <section className="relative h-[725px]">
