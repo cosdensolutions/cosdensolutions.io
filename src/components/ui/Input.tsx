@@ -1,17 +1,25 @@
-'use client';
+import * as React from 'react';
 
-import { ComponentPropsWithRef, forwardRef, Ref } from 'react';
+import { cn } from '@/lib/utils';
 
-type InputProps = ComponentPropsWithRef<'input'>;
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-function Input(props: InputProps, ref: Ref<HTMLInputElement>) {
-  return (
-    <input
-      ref={ref}
-      className="border-grayscale-700 bg-grayscale-800 focus:border-primary-500 w-full appearance-none rounded-lg border-2 px-3 py-2 leading-tight focus:outline-none"
-      {...props}
-    />
-  );
-}
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, ...props }, ref) => {
+    return (
+      <input
+        type={type}
+        className={cn(
+          'focus:border-primary placeholder:text-muted-foreground flex h-10 w-full rounded-md border bg-transparent px-3 py-2 text-sm outline-none file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:cursor-not-allowed disabled:opacity-50',
+          className,
+        )}
+        ref={ref}
+        {...props}
+      />
+    );
+  },
+);
+Input.displayName = 'Input';
 
-export default forwardRef(Input);
+export { Input };

@@ -28,11 +28,11 @@ export default function SolutionsSection({ className }: SolutionsSectionProps) {
 
   return (
     <section className={className}>
-      <h2 className="text-d2 mb-4 text-center font-bold">Perfect Solutions</h2>
-      <p className="text-secondary-500 text-s2 mx-auto mb-16 max-w-[50%] text-center">
+      <h2 className="mb-4 text-center font-bold">Perfect Solutions</h2>
+      <p className="mx-auto mb-16 max-w-[80%] text-center text-lg text-muted-foreground md:max-w-[50%]">
         Become a professional React developer through our various solutions.
       </p>
-      <div className="flex flex-row justify-between gap-8">
+      <div className="flex flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
         {solutions.map((solution, index) => (
           <div key={index} className="w-[320px]">
             <h3 className="text-h3 mb-2 font-semibold">{solution.title}</h3>

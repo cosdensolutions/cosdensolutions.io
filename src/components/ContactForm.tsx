@@ -5,16 +5,19 @@ import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input';
-import Textarea from '@/components/ui/Textarea';
+import { Button, Input, Textarea } from '@/components/ui';
 
 const contactFormSchema = z.object({
   name: z.string().optional(),
   email: z
     .string()
-    .min(1, { message: 'Email is required' })
-    .email({ message: 'Invalid email address' }),
+    .transform(v => v.trim())
+    .pipe(
+      z
+        .string()
+        .min(1, { message: 'Email is required' })
+        .email({ message: 'Invalid email address' }),
+    ),
   message: z.string().min(1, { message: 'Message is required' }),
 });
 
@@ -24,7 +27,6 @@ export default function ContactForm() {
   const {
     register,
     handleSubmit,
-    getValues,
     formState: { errors },
   } = useForm<FormFields>({
     resolver: zodResolver(contactFormSchema),

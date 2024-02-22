@@ -39,16 +39,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${manrope.variable} font-manrope`}>
+    <html lang="en" className={`${manrope.variable} font-manrope dark`}>
       <head>
         <meta name="color-scheme" content="dark" />
         <link rel="icon" type="image/png" href="/icon.png" sizes="32x32" />
       </head>
-      <body className="to-grayscale-900 from-grayscale-800 min-h-screen bg-gradient-to-t bg-no-repeat text-white">
+      <body className="min-h-screen bg-gradient-to-t from-background-lighter to-background bg-no-repeat text-white">
         <div className="container mx-auto">
           <Navbar />
-          {children}
-          <Separator className="mt-24" />
+          <div className="mb-12 sm:mb-24">{children}</div>
           <Footer />
         </div>
       </body>
