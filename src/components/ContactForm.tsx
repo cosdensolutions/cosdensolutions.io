@@ -8,10 +8,10 @@ import { z } from 'zod';
 import { Button, Input, Textarea } from '@/components/ui';
 
 const contactFormSchema = z.object({
-  name: z.string().optional(),
+  name: z.string().trim().optional(),
   email: z
     .string()
-    .transform(v => v.trim())
+    .trim()
     .pipe(
       z
         .string()

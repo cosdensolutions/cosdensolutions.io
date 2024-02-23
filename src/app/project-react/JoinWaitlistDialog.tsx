@@ -13,10 +13,10 @@ import {
 } from '@/components/ui';
 
 const joinWaitlistSchema = z.object({
-  name: z.string().min(1, { message: 'Name is required' }),
+  name: z.string().trim().min(1, { message: 'Name is required' }),
   email: z
     .string()
-    .transform(v => v.trim())
+    .trim()
     .pipe(
       z
         .string()
@@ -45,9 +45,12 @@ export default function JoinWaitlistDialog() {
       <DialogTrigger asChild>
         <Button size="xl">Join Waitlist</Button>
       </DialogTrigger>
-      <DialogContent className="top-[40%] sm:max-w-[550px]">
+      <DialogContent
+        onOpenAutoFocus={e => e.preventDefault()}
+        className="top-[40%] sm:max-w-[550px]"
+      >
         <h3 className="text-center text-3xl">
-          You are one step away from becoming a real React developer
+          You are one step away from becoming a React developer
         </h3>
         <p className="mx-[5%] text-center text-muted-foreground">
           <span className="text-primary">Project React</span> will teach you
