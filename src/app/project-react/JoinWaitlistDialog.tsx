@@ -1,16 +1,20 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import {
   Button,
   Dialog,
+  DialogClose,
   DialogContent,
   DialogTrigger,
   Input,
 } from '@/components/ui';
+
+import { joinWaitlist } from './actions';
 
 const joinWaitlistSchema = z.object({
   name: z.string().trim().min(1, { message: 'Name is required' }),
@@ -28,20 +32,42 @@ const joinWaitlistSchema = z.object({
 type JoinWaitlistFormFields = z.infer<typeof joinWaitlistSchema>;
 
 export default function JoinWaitlistDialog() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
     reset,
+    setError,
   } = useForm<JoinWaitlistFormFields>({
     resolver: zodResolver(joinWaitlistSchema),
   });
 
-  const onSubmit: SubmitHandler<JoinWaitlistFormFields> = data =>
-    console.log(data);
+  const onSubmit: SubmitHandler<JoinWaitlistFormFields> = async data => {
+    try {
+      await joinWaitlist(data);
+    } catch {
+      setError('root', {
+        message: 'Something went wrong, please try again later.',
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      setTimeout(() => setIsOpen(false), 3000);
+    }
+  }, [isSubmitSuccessful, reset]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setTimeout(reset, 300);
+    }
+  }, [isOpen, reset]);
 
   return (
-    <Dialog onOpenChange={open => !open && setTimeout(reset, 300)}>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button size="xl">Join Waitlist</Button>
       </DialogTrigger>
@@ -77,9 +103,19 @@ export default function JoinWaitlistDialog() {
               </p>
             )}
           </div>
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full" disabled={isSubmitting}>
             Join Waitlist
           </Button>
+          {errors.root && (
+            <p className="mb-0 mt-2 text-sm text-red-500">
+              {errors.root.message}
+            </p>
+          )}
+          {isSubmitSuccessful && (
+            <p className="mb-0 mt-2 text-sm text-green-500">
+              Success! Check your email 🎉
+            </p>
+          )}
         </form>
         <p className="text-center text-sm text-muted-foreground">
           Your information is 100% secure
