@@ -7,8 +7,9 @@ import { z } from 'zod';
 
 import { Button, Input, Textarea } from '@/components/ui';
 
+import { sendContactEmail } from './actions';
+
 const contactFormSchema = z.object({
-  name: z.string().trim().optional(),
   email: z
     .string()
     .trim()
@@ -28,21 +29,23 @@ export default function ContactForm() {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
   } = useForm<FormFields>({
     resolver: zodResolver(contactFormSchema),
   });
 
-  const onSubmit: SubmitHandler<FormFields> = data => console.log(data);
+  const onSubmit: SubmitHandler<FormFields> = async data => {
+    try {
+      await sendContactEmail(data);
+    } catch {
+      setError('root', {
+        message: 'Something went wrong, please try again later.',
+      });
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-      <div>
-        <Input {...register('name')} placeholder="Name" />
-        {errors.name && (
-          <p className="mt-2 text-red-500">{errors.name.message}</p>
-        )}
-      </div>
-
       <div>
         <Input {...register('email')} placeholder="Email" />
         {errors.email && (
@@ -58,6 +61,7 @@ export default function ContactForm() {
       </div>
 
       <Button type="submit">Submit</Button>
+      {errors.root && <p className="text-red-500 ">{errors.root.message}</p>}
     </form>
   );
 }

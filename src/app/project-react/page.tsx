@@ -14,8 +14,8 @@ export default function ProjectReactPage() {
           <p className="text-xl text-muted-foreground md:mx-[15%]">
             <span className="text-primary">Project React</span> is a course that
             teaches you React by building a real-world project. You will be
-            guided through step-by-step on how to build a big and complex
-            application in React.
+            guided step-by-step on how to build a big and complex application in
+            React.
           </p>
           <JoinWaitlistDialog />
         </div>

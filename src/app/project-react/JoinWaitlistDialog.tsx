@@ -55,12 +55,6 @@ export default function JoinWaitlistDialog() {
   };
 
   useEffect(() => {
-    if (isSubmitSuccessful) {
-      setTimeout(() => setIsOpen(false), 3000);
-    }
-  }, [isSubmitSuccessful, reset]);
-
-  useEffect(() => {
     if (!isOpen) {
       setTimeout(reset, 300);
     }
@@ -80,7 +74,7 @@ export default function JoinWaitlistDialog() {
         </h3>
         <p className="mx-[5%] text-center text-muted-foreground">
           <span className="text-primary">Project React</span> will teach you
-          everything that you need to be able to build big and complex
+          everything you need to know to be able to build big and complex
           applications in React.
         </p>
         <form
@@ -103,7 +97,11 @@ export default function JoinWaitlistDialog() {
               </p>
             )}
           </div>
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
+          <Button
+            type="submit"
+            className="w-full"
+            disabled={isSubmitting || isSubmitSuccessful}
+          >
             Join Waitlist
           </Button>
           {errors.root && (
