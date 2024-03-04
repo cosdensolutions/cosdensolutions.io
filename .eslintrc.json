@@ -3,7 +3,7 @@
   "plugins": ["simple-import-sort"],
   "rules": {
     "react/no-unescaped-entities": "off",
-    "eslint-plugin-vue/no-unused-vars": "warn",
+    "no-unused-vars": "warn",
     "simple-import-sort/imports": [
       "error",
       {
