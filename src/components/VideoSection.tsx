@@ -5,7 +5,7 @@ type SolutionsSectionProps = {
 export default function VideoSection({ className }: SolutionsSectionProps) {
   return (
     <section className={className}>
-      <div className="mx-auto h-[720px] w-[1280px] bg-grayscale-800"></div>
+      <div className="bg-grayscale-800 mx-auto h-[720px] w-[1280px]"></div>
     </section>
   );
 }
