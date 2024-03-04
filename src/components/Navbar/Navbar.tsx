@@ -1,20 +1,7 @@
-import { Menu } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import {
-  Button,
-  Input,
-  Label,
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui';
+import NavbarMenu from './NavbarMenu';
 
 const Navbar = async () => {
   const links = [
@@ -31,13 +18,15 @@ const Navbar = async () => {
       label: 'Contact',
     },
   ];
+
   return (
     <nav className="flex flex-row items-center justify-between py-4 md:px-6">
       <Link href="/">
         <div className="flex flex-row items-center gap-4">
           <Image
             priority
-            src="/500w-logo.png"
+            className="h-auto w-auto"
+            src="/100w-logo.png"
             width={40}
             height={40}
             alt="logo"
@@ -54,20 +43,7 @@ const Navbar = async () => {
           </Link>
         ))}
       </div>
-      <Sheet>
-        <SheetTrigger asChild className="md:hidden">
-          <Button variant="outline">
-            <Menu className="h-4 w-4" />
-          </Button>
-        </SheetTrigger>
-        <SheetContent className="flex flex-col gap-8 p-8">
-          {links.map(link => (
-            <Link key={link.href} href={link.href}>
-              {link.label}{' '}
-            </Link>
-          ))}
-        </SheetContent>
-      </Sheet>
+      <NavbarMenu links={[{ href: '/', label: 'Home' }, ...links]} />
     </nav>
   );
 };

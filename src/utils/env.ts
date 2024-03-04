@@ -9,6 +9,7 @@ export const env = createEnv({
     RESEND_API_KEY: z.string(),
   },
   client: {
+    NEXT_PUBLIC_DISCORD_URL: z.string(),
     NEXT_PUBLIC_INSTAGRAM_URL: z.string(),
     NEXT_PUBLIC_TIKTOK_URL: z.string(),
     NEXT_PUBLIC_YOUTUBE_URL: z.string(),
@@ -19,6 +20,7 @@ export const env = createEnv({
     CONVERTKIT_PRE_LAUNCH_SEQUENCE_ID:
       process.env.CONVERTKIT_PRE_LAUNCH_SEQUENCE_ID,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
+    NEXT_PUBLIC_DISCORD_URL: process.env.NEXT_PUBLIC_DISCORD_URL,
     NEXT_PUBLIC_INSTAGRAM_URL: process.env.NEXT_PUBLIC_INSTAGRAM_URL,
     NEXT_PUBLIC_TIKTOK_URL: process.env.NEXT_PUBLIC_TIKTOK_URL,
     NEXT_PUBLIC_YOUTUBE_URL: process.env.NEXT_PUBLIC_YOUTUBE_URL,

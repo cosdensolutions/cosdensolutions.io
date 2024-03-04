@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
 import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
-import Separator from '@/components/ui/Separator';
+import Navbar from '@/components/Navbar/Navbar';
 
 import './globals.css';
 

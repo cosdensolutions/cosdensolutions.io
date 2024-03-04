@@ -3,7 +3,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { ratelimit } from '@/utils/ratelimit';
 
 export const config = {
-  matcher: ['/', '/project-react'],
+  matcher: ['/', '/contact', '/project-react'],
 };
 
 export default async function middleware(request: NextRequest) {
