@@ -19,6 +19,7 @@ export default function MetricsSection({ className }: MetricsSectionProps) {
       subtitle: 'Subscribers',
     },
   ];
+
   return (
     <section className={className}>
       <div className="mx-auto flex flex-col items-center justify-between gap-16 md:max-w-[80%] md:flex-row">
