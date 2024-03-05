@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function AboutPage() {
   return (
     <main>
-      <section className="mt-4 flex flex-col gap-8 md:mt-12 md:flex-row md:items-center md:justify-between md:gap-4">
+      <section className="mt-6 flex flex-col gap-8 md:mt-12 md:flex-row md:items-center md:justify-between md:gap-4">
         <div className="md:w-[50%]">
           <Image
             priority

@@ -15,7 +15,7 @@ export default function MetricsSection({ className }: MetricsSectionProps) {
       subtitle: 'Watch Hours',
     },
     {
-      title: '63k',
+      title: '64k',
       subtitle: 'Subscribers',
     },
   ];

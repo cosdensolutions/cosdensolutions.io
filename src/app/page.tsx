@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main>
       <section className="mb-8 md:mb-24">
-        <div className="mt-12 flex flex-col items-center justify-center gap-8 text-center md:mt-24">
+        <div className="mt-6 flex flex-col items-center justify-center gap-8 text-center md:mt-24">
           <h1 className="text-5xl font-bold md:text-7xl">
             Welcome to
             <br />

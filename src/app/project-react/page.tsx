@@ -5,17 +5,24 @@ import JoinWaitlistDialog from './JoinWaitlistDialog';
 export default function ProjectReactPage() {
   return (
     <main>
-      <section className="mb-24">
-        <div className="mt-12 flex flex-col items-center justify-center gap-8 text-center md:mt-24">
+      <section className="mb-8 md:mb-24">
+        <div className="mt-6 flex flex-col items-center justify-center gap-8 text-center md:mt-24">
+          <h2 className="mb-0 rounded-full font-medium text-primary">
+            Project React
+          </h2>
           <h1 className="text-5xl font-bold md:text-7xl">
             Learn React by building
-            <br />a <span className="text-primary">real-world project</span>
+            <br />a real-world project
           </h1>
           <p className="text-xl text-muted-foreground md:mx-[15%]">
-            <span className="text-primary">Project React</span> is a course that
+            {/* <span className="text-primary">Project React</span> is a course that
             teaches you React by building a real-world project. You will be
-            guided step-by-step on how to build a big and complex application in
-            React.
+            guided step-by-step on how to build a big and complex application
+            with React. */}
+            You will be guided step-by-step on how to build a big and complex
+            application with React that is exactly like one you'd find in the
+            real world. You will learn about navigation, data fetching, forms,
+            state management, authentication, design patterns, and so much more.
           </p>
           <JoinWaitlistDialog />
         </div>

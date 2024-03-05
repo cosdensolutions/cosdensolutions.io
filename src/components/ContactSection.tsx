@@ -8,7 +8,7 @@ export default function ContactSection() {
         <p className="mx-auto max-w-[70%] text-muted-foreground md:text-lg">
           If you have any questions or comments, feel free to reach out to us.
           We are always happy to help and will get back to you as soon as
-          possible
+          possible.
         </p>
       </div>
       <div className="w-full md:mx-auto md:w-[50%]">
