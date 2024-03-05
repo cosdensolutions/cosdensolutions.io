@@ -14,9 +14,9 @@ export default function NavbarMenu({ links }: NavbarMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Sheet open={isOpen}>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild className="md:hidden">
-        <Button variant="outline" onClick={() => setIsOpen(true)}>
+        <Button variant="outline">
           <Menu className="h-4 w-4" />
         </Button>
       </SheetTrigger>
