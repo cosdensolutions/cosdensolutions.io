@@ -71,7 +71,7 @@ export default function JoinWaitlistDialog() {
         <h3 className="text-center text-3xl">
           You are one step away from becoming a React developer
         </h3>
-        <p className="mx-[5%] text-center text-muted-foreground">
+        <p className="mx-[5%] text-center text-muted-foreground md:text-lg">
           <span className="text-primary">Project React</span> will teach you
           everything you need to know to be able to build big and complex
           applications in React.
