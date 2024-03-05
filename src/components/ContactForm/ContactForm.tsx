@@ -28,7 +28,7 @@ export default function ContactForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
     setError,
   } = useForm<FormFields>({
     resolver: zodResolver(contactFormSchema),
@@ -60,8 +60,15 @@ export default function ContactForm() {
         )}
       </div>
 
-      <Button type="submit">Submit</Button>
+      <Button disabled={isSubmitting || isSubmitSuccessful} type="submit">
+        Submit
+      </Button>
       {errors.root && <p className="text-red-500 ">{errors.root.message}</p>}
+      {isSubmitSuccessful && (
+        <p className="mb-0 mt-2 text-center text-green-500 md:text-lg">
+          Your message has been sent successfully!
+        </p>
+      )}
     </form>
   );
 }

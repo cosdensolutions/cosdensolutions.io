@@ -108,8 +108,8 @@ export default function JoinWaitlistDialog() {
               {errors.root.message}
             </p>
           )}
-          {isSubmitSuccessful && (
-            <p className="mb-0 mt-2 text-sm text-green-500">
+          {true && (
+            <p className="mb-0 mt-2 text-green-500">
               Success! Check your email 🎉
             </p>
           )}
