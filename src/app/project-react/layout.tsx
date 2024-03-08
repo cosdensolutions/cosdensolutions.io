@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Project React | Cosden Solutions',
@@ -6,5 +7,10 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      {children}
+      <Script src="https://cdn.paritydeals.com/banner.js" />
+    </>
+  );
 }
