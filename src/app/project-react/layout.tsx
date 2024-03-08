@@ -10,6 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       {children}
+      <div id="ppp-banner" className="absolute bottom-0 left-0 right-0" />
       <Script src="https://cdn.paritydeals.com/banner.js" />
     </>
   );
