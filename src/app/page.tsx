@@ -3,8 +3,7 @@ import Link from 'next/link';
 import ContactSection from '@/components/ContactSection';
 import MetricsSection from '@/components/MetricsSection';
 import SolutionsSection from '@/components/SolutionsSection';
-import { Button } from '@/components/ui';
-import Separator from '@/components/ui/Separator';
+import { Button, Separator } from '@/components/ui';
 import { env } from '@/utils/env';
 
 export default function Home() {

@@ -30,6 +30,7 @@ const manrope = localFont({
 export const metadata: Metadata = {
   title: 'Cosden Solutions',
   description: 'The best solutions for learning React',
+  metadataBase: new URL('https://cosden.solutions'),
 };
 
 export default function RootLayout({

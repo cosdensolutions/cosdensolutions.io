@@ -7,6 +7,10 @@ export const config = {
 };
 
 export default async function middleware(request: NextRequest) {
+  if (request.geo?.country) {
+    request.cookies.set('country', request.geo.country);
+  }
+
   if (request.method === 'POST') {
     const ip = request.ip ?? '127.0.0.1';
     const { success } = await ratelimit.limit(ip);

@@ -1,4 +1,5 @@
 import MetricsSection from '@/components/MetricsSection';
+import PriceSection from '@/components/PriceSection/PriceSection';
 
 import JoinWaitlistDialog from './JoinWaitlistDialog';
 
@@ -15,10 +16,6 @@ export default function ProjectReactPage() {
             <br />a real-world project
           </h1>
           <p className="text-xl text-muted-foreground md:mx-[15%]">
-            {/* <span className="text-primary">Project React</span> is a course that
-            teaches you React by building a real-world project. You will be
-            guided step-by-step on how to build a big and complex application
-            with React. */}
             You will be guided step-by-step on how to build a big and complex
             application with React that is exactly like one you'd find in the
             real world. You will learn about navigation, data fetching, forms,
@@ -27,7 +24,8 @@ export default function ProjectReactPage() {
           <JoinWaitlistDialog />
         </div>
       </section>
-      <MetricsSection />
+      <MetricsSection className="mb-8 md:mb-24" />
+      <PriceSection />
     </main>
   );
 }
