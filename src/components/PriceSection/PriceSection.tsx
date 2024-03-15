@@ -55,7 +55,7 @@ export default function PriceSection() {
 
   return (
     <section className="space-y-8">
-      <div className="mx-auto flex flex-col items-center justify-center gap-8 rounded-lg bg-background-lighter p-4 md:w-[70%] md:p-8">
+      <div className="mx-auto flex flex-col items-center justify-center gap-8 rounded-lg bg-background-lighter p-4 py-8 md:w-[70%] md:p-8">
         <div className="text-center">
           <h3 className="text-3xl text-primary">Project React</h3>
           <p className="mb-0 text-muted-foreground">Full Course</p>
@@ -111,13 +111,14 @@ function PriceSectionBenefits() {
     <div className="w-full space-y-4">
       {benefits.map((benefit, index) => {
         return (
-          <div key={index} className="flex gap-2">
+          <div key={index} className="flex gap-4">
             <Check className="h-8 w-8 text-primary" />
             <p className="mb-0 w-full text-muted-foreground">
               <span className="text-lg font-bold text-foreground">
                 {benefit.title}
-              </span>{' '}
-              - {benefit.description}
+              </span>
+              <br />
+              {benefit.description}
             </p>
           </div>
         );
@@ -184,14 +185,19 @@ function PriceSectionModules() {
     <div className="w-full space-y-4">
       <h3 className="text-center text-primary">Modules Included</h3>
       {modules.map((module, index) => {
+        const isLast = index === modules.length - 1;
+
         return (
-          <div key={index} className="flex gap-3">
-            <span className="text-3xl font-bold text-primary">{index}</span>
+          <div key={index} className="flex gap-4">
+            <span className="text-3xl font-bold text-primary">
+              {isLast ? 'X' : index}
+            </span>
             <p className="mb-0 text-muted-foreground">
               <span className="text-lg font-bold text-foreground">
                 {module.title}
-              </span>{' '}
-              - {module.description}
+              </span>
+              <br />
+              {module.description}
             </p>
           </div>
         );
