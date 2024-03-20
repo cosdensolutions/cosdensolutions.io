@@ -15,7 +15,7 @@ export default function MetricsSection({ className }: MetricsSectionProps) {
       subtitle: 'Watch Hours',
     },
     {
-      title: '64k',
+      title: '65k',
       subtitle: 'Subscribers',
     },
   ];
@@ -37,7 +37,7 @@ export default function MetricsSection({ className }: MetricsSectionProps) {
             className="flex flex-col items-center justify-center gap-2"
           >
             <h3 className="text-4xl font-bold">{metric.title}</h3>
-            <p className="text-xl text-muted-foreground">{metric.subtitle}</p>
+            <p>{metric.subtitle}</p>
           </div>
         ))}
       </div>

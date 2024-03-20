@@ -31,7 +31,7 @@ const Navbar = async () => {
             height={40}
             alt="logo"
           />
-          <span className="text-lg">
+          <span>
             <b>Cosden</b> Solutions
           </span>
         </div>

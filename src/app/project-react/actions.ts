@@ -7,7 +7,7 @@ type JoinWaitlistData = {
   email: string;
 };
 
-export const joinWaitlist = async (data: JoinWaitlistData) => {
+export async function joinWaitlist(data: JoinWaitlistData) {
   const response = await fetch(
     `${env.CONVERTKIT_API_URL}/v3/sequences/${env.CONVERTKIT_PRE_LAUNCH_SEQUENCE_ID}/subscribe`,
     {
@@ -25,6 +25,5 @@ export const joinWaitlist = async (data: JoinWaitlistData) => {
 
   if (!response.ok) {
     console.log(await response.text());
-    throw new Error();
   }
-};
+}

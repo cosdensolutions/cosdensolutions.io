@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar/Navbar';
+import { env } from '@/utils/env';
 
 import './globals.css';
 

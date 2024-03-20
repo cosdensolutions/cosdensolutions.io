@@ -45,8 +45,9 @@
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground md:text-xl;
   }
 
   h1 {
@@ -54,7 +55,7 @@
   }
 
   h2 {
-    @apply mb-2 text-3xl font-bold;
+    @apply mb-4 text-3xl font-bold;
   }
 
   h3 {
@@ -62,7 +63,7 @@
   }
 
   p {
-    @apply mb-4;
+    @apply mb-4 text-muted-foreground;
   }
 
   ol {
@@ -71,9 +72,5 @@
 
   li {
     @apply mb-2 list-inside list-disc;
-  }
-
-  p {
-    @apply mb-4;
   }
 }

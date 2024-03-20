@@ -12,15 +12,11 @@ export default function PriceSectionParityDisclaimer({
 }: PriceSectionParityDisclaimerProps) {
   return (
     <div className={cn('rounded-lg border-2 border-dashed p-8', className)}>
-      <p className="text-muted-foreground">
-        It looks like you’re located in{' '}
-        <span className="font-semibold text-white">
-          {country.emoji} {country.name}
-        </span>
-        .
+      <p className="font-semibold text-foreground">
+        It looks like you’re located in {country.emoji} {country.name}.
       </p>
 
-      <p className="mb-0 text-muted-foreground">
+      <p className="mb-0">
         This is a premium course with a premium pricetag, but we want the price
         to be fair to everyone. As such, we've automatically adjusted the price
         for your region to help make this course more accessible.

@@ -3,13 +3,14 @@ import { cookies } from 'next/headers';
 import Link from 'next/link';
 
 import { Button, Separator } from '@/components/ui';
+import { cn } from '@/lib/utils';
 import { env } from '@/utils/env';
 import { countryData, parityByCountry } from '@/utils/purchaseParity';
 
 import PriceSectionParityDisclaimer from './PriceSectionParityDisclaimer';
 
 const FULL_PRICE = 197;
-const DEFAULT_COUNTRY = 'US';
+const DEFAULT_COUNTRY = 'BR';
 
 const parityProductIds: { [key: number]: { id: string; price: number } } = {
   [0.3]: {
@@ -54,31 +55,29 @@ export default function PriceSection() {
   checkoutUrl.searchParams.append('product_id', productId);
 
   return (
-    <section className="space-y-8">
-      <div className="mx-auto flex flex-col items-center justify-center gap-8 rounded-lg bg-background-lighter p-4 py-8 md:w-[70%] md:p-8">
-        <div className="text-center">
-          <h3 className="text-3xl text-primary">Project React</h3>
-          <p className="mb-0 text-muted-foreground">Full Course</p>
-        </div>
-        {hasParity && <PriceSectionParityDisclaimer country={country} />}
-        <div className="relative flex flex-row items-center gap-2">
-          <h3 className="mb-0 text-xl font-medium text-red-500 line-through">
-            ${hasParity ? FULL_PRICE : '297'}
-          </h3>
-          <h3 className="mb-0 text-4xl">${price}</h3>
-        </div>
-        <Button size="xl" asChild>
-          <Link href={checkoutUrl.toString()}>Enroll Now</Link>
-        </Button>
-
-        <PriceSectionBenefits />
-        <Separator className="bg-foreground" />
-        <PriceSectionModules />
-
-        <Button size="xl" asChild>
-          <Link href={checkoutUrl.toString()}>Enroll Now</Link>
-        </Button>
+    <section
+      id="pricing"
+      className="flex scroll-mt-8 flex-col items-center justify-center gap-8 rounded-lg bg-background-lighter p-4 py-8 md:p-8"
+    >
+      <div className="text-center">
+        <h3 className="text-3xl text-primary">Project React</h3>
+        <p className="mb-0 text-muted-foreground">Full Course</p>
       </div>
+      {hasParity && <PriceSectionParityDisclaimer country={country} />}
+      <div className="relative flex flex-col items-center">
+        <h3 className="absolute -left-8 -top-2 mb-0 -rotate-45 text-xl font-medium text-red-500 line-through">
+          ${hasParity ? FULL_PRICE : '297'}
+        </h3>
+        <h3 className="text-4xl">${price}</h3>
+        <span className="text-sm text-muted-foreground">+ local taxes</span>
+      </div>
+      <Button size="xl" asChild>
+        <Link href={checkoutUrl.toString()}>Enroll Now</Link>
+      </Button>
+
+      <PriceSectionBenefits />
+      <Separator className="bg-foreground" />
+      <PriceSectionModules />
     </section>
   );
 }
@@ -88,7 +87,7 @@ function PriceSectionBenefits() {
     {
       title: 'The full Project React course',
       description:
-        '90+ video lessons of material teaching you everything we know about React from getting started all the way through to building a big and complex real-world project.',
+        '80+ video lessons of material teaching you everything we know about React from getting started all the way through to building a big and complex real-world project.',
     },
     {
       title: 'Lifetime access to all the course material',
@@ -96,22 +95,27 @@ function PriceSectionBenefits() {
         'You will have lifetime access to all the course material, including any updates and new content we add in the future.',
     },
     {
-      title: 'Project React Extended',
-      description:
-        'The extended edition to Project React that will include lessons covering more advanced topics, new components, new pages, and advanced design patterns.',
-    },
-    {
       title: 'Access to the Project React community',
       description:
         "You'll get access to the Project React Discord community where you can ask questions, share your progress, and get help from other students and instructors.",
+    },
+    {
+      title: 'Project React Extended (coming soon)',
+      description:
+        'The extended edition to Project React that will include lessons covering more advanced topics, new components, new pages, and advanced design patterns.',
     },
   ];
 
   return (
     <div className="w-full space-y-4">
       {benefits.map((benefit, index) => {
+        const isLast = index === benefits.length - 1;
+
         return (
-          <div key={index} className="flex gap-4">
+          <div
+            key={index}
+            className={cn('flex gap-4', isLast && 'opacity-50 grayscale')}
+          >
             <Check className="h-8 w-8 text-primary" />
             <p className="mb-0 w-full text-muted-foreground">
               <span className="text-lg font-bold text-foreground">
@@ -188,7 +192,10 @@ function PriceSectionModules() {
         const isLast = index === modules.length - 1;
 
         return (
-          <div key={index} className="flex gap-4">
+          <div
+            key={index}
+            className={cn('flex gap-4', isLast && 'opacity-50 grayscale')}
+          >
             <span className="text-3xl font-bold text-primary">
               {isLast ? 'X' : index}
             </span>
