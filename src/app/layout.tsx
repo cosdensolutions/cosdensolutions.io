@@ -1,8 +1,10 @@
+import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar/Navbar';
+import { env } from '@/utils/env';
 
 import './globals.css';
 
@@ -30,6 +32,7 @@ const manrope = localFont({
 export const metadata: Metadata = {
   title: 'Cosden Solutions',
   description: 'The best solutions for learning React',
+  metadataBase: new URL('https://cosden.solutions'),
 };
 
 export default function RootLayout({
@@ -50,6 +53,7 @@ export default function RootLayout({
           <Footer />
         </div>
       </body>
+      <GoogleAnalytics gaId={env.GOOGLE_ANALYTICS_ID} />
     </html>
   );
 }

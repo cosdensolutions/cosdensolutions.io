@@ -6,6 +6,7 @@ export const env = createEnv({
     CONVERTKIT_API_KEY: z.string(),
     CONVERTKIT_API_URL: z.string().url(),
     CONVERTKIT_PRE_LAUNCH_SEQUENCE_ID: z.string(),
+    GOOGLE_ANALYTICS_ID: z.string(),
     RESEND_API_KEY: z.string(),
   },
   client: {
@@ -19,6 +20,7 @@ export const env = createEnv({
     CONVERTKIT_API_URL: process.env.CONVERTKIT_API_URL,
     CONVERTKIT_PRE_LAUNCH_SEQUENCE_ID:
       process.env.CONVERTKIT_PRE_LAUNCH_SEQUENCE_ID,
+    GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     NEXT_PUBLIC_DISCORD_URL: process.env.NEXT_PUBLIC_DISCORD_URL,
     NEXT_PUBLIC_INSTAGRAM_URL: process.env.NEXT_PUBLIC_INSTAGRAM_URL,
