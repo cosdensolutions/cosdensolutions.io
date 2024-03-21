@@ -1,3 +1,6 @@
+'use client';
+
+import Autoplay from 'embla-carousel-autoplay';
 import { Star } from 'lucide-react';
 import Image from 'next/image';
 import * as React from 'react';
@@ -59,7 +62,16 @@ export default function TestimonialsSection({
         See what others are saying about this course. These are all testimonials
         from people who have no interest in saying how good the course is.
       </p>
-      <Carousel>
+      <Carousel
+        plugins={[
+          Autoplay({
+            delay: 5000,
+          }),
+        ]}
+        opts={{
+          loop: true,
+        }}
+      >
         <CarouselContent className="items-center">
           {testimonials.map((testimonial, index) => (
             <CarouselItem key={index}>
