@@ -7,10 +7,11 @@ export const config = {
 };
 
 export default async function middleware(request: NextRequest) {
-  console.log(request.geo);
   const country = request.geo?.country;
+  const response = NextResponse.next();
+
   if (country) {
-    request.cookies.set('country', country);
+    response.cookies.set('country', country);
   }
 
   if (request.method === 'POST') {
@@ -18,7 +19,7 @@ export default async function middleware(request: NextRequest) {
     const { success } = await ratelimit.limit(ip);
 
     if (success) {
-      return NextResponse.next();
+      return response;
     } else {
       return NextResponse.json(
         { error: 'Rate limit exceeded' },
