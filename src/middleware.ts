@@ -18,13 +18,13 @@ export default async function middleware(request: NextRequest) {
     const ip = request.ip ?? '127.0.0.1';
     const { success } = await ratelimit.limit(ip);
 
-    if (success) {
-      return response;
-    } else {
+    if (!success) {
       return NextResponse.json(
         { error: 'Rate limit exceeded' },
         { status: 429 },
       );
     }
   }
+
+  return response;
 }
