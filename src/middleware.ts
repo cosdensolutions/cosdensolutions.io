@@ -26,5 +26,5 @@ export default async function middleware(request: NextRequest) {
     }
   }
 
-  return response;
+  return NextResponse.rewrite(request.nextUrl, response);
 }
