@@ -7,8 +7,9 @@ export const config = {
 };
 
 export default async function middleware(request: NextRequest) {
-  if (request.geo?.country) {
-    request.cookies.set('country', request.geo.country);
+  const country = request.headers.get('CF-IPCountry') || request.geo?.country;
+  if (country) {
+    request.cookies.set('country', country);
   }
 
   if (request.method === 'POST') {
