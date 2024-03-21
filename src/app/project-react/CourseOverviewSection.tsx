@@ -13,7 +13,7 @@ export default function CourseOverviewSection({
     <section className={cn(className)}>
       <div className="mb-4">
         <Image
-          className="rounded-lg border"
+          className="w-full rounded-lg border"
           src="/project-react-lp-project-overview.jpg"
           width={1000}
           height={600}

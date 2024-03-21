@@ -10,7 +10,7 @@ import { countryData, parityByCountry } from '@/utils/purchaseParity';
 import PriceSectionParityDisclaimer from './PriceSectionParityDisclaimer';
 
 const FULL_PRICE = 197;
-const DEFAULT_COUNTRY = 'BR';
+const DEFAULT_COUNTRY = 'US';
 
 const parityProductIds: { [key: number]: { id: string; price: number } } = {
   [0.3]: {

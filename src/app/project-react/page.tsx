@@ -6,13 +6,13 @@ import CourseStructureSection from './CourseStructureSection';
 import CtaButton from './CtaButton';
 import FaqSection from './FaqSection';
 import InstructorInformationSection from './InstructorInformationSection';
-import JoinWaitlistDialog from './JoinWaitlistDialog';
 import ProjectDescriptionSection from './ProjectDescriptionSection';
 import TestimonialsSection from './TestimonialsSection';
+import VideoSection from './VideoSection';
 
 export default async function ProjectReactPage() {
   return (
-    <main className="mx-auto max-w-[1000px] space-y-12 md:space-y-24">
+    <main className="mx-auto max-w-[1100px] space-y-12 md:space-y-24">
       <section>
         <div className="mt-6 flex flex-col items-center justify-center gap-8 text-center md:mt-24">
           <h2 className="mb-0 rounded-full font-medium text-primary">
@@ -28,9 +28,9 @@ export default async function ProjectReactPage() {
             real world. You will learn about navigation, data fetching, forms,
             state management, authentication, design patterns, and so much more.
           </p>
-          <JoinWaitlistDialog />
         </div>
       </section>
+      <VideoSection />
       <MetricsSection />
       <InstructorInformationSection />
       <CtaButton />

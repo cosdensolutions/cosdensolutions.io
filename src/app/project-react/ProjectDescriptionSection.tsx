@@ -13,7 +13,7 @@ export default function ProjectDescriptionSection({
     <section className={cn(className)}>
       <div>
         <Image
-          className="rounded-lg border"
+          className="w-full rounded-lg border"
           src="/project-react-lp-project-files.jpg"
           width={1000}
           height={600}

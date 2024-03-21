@@ -7,15 +7,15 @@ type MetricsSectionProps = {
 export default function MetricsSection({ className }: MetricsSectionProps) {
   const metrics = [
     {
-      title: '4.1m',
+      title: '4.4m',
       subtitle: 'Total Views',
     },
     {
-      title: '155k',
+      title: '170k',
       subtitle: 'Watch Hours',
     },
     {
-      title: '65k',
+      title: '67k',
       subtitle: 'Subscribers',
     },
   ];
