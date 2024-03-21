@@ -1,3 +1,5 @@
+import { headers } from 'next/headers';
+
 import PriceSection from '@/app/project-react/PriceSection/PriceSection';
 import MetricsSection from '@/components/MetricsSection';
 
@@ -11,6 +13,8 @@ import TestimonialsSection from './TestimonialsSection';
 import VideoSection from './VideoSection';
 
 export default async function ProjectReactPage() {
+  const country = headers().get('X-Next-Geo-Country');
+
   return (
     <main className="mx-auto max-w-[1100px] space-y-12 md:space-y-24">
       <section>
@@ -42,7 +46,7 @@ export default async function ProjectReactPage() {
       <CtaButton />
       <TestimonialsSection />
       <CtaButton />
-      <PriceSection />
+      <PriceSection countryCode={country} />
       <FaqSection />
     </main>
   );

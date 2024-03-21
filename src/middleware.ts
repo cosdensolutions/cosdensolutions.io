@@ -7,11 +7,17 @@ export const config = {
 };
 
 export default async function middleware(request: NextRequest) {
-  const country = request.geo?.country;
-  const response = NextResponse.next();
-
-  if (country) {
-    response.cookies.set('country', country);
+  if (request.nextUrl.pathname === '/project-react') {
+    const country = request.geo?.country;
+    if (country) {
+      const requestHeaders = new Headers(request.headers);
+      requestHeaders.set('X-Next-Geo-Country', country);
+      return NextResponse.next({
+        request: {
+          headers: requestHeaders,
+        },
+      });
+    }
   }
 
   if (request.method === 'POST') {
@@ -25,6 +31,4 @@ export default async function middleware(request: NextRequest) {
       );
     }
   }
-
-  return NextResponse.rewrite(request.nextUrl, response);
 }

@@ -1,5 +1,4 @@
 import { Check } from 'lucide-react';
-import { cookies } from 'next/headers';
 import Link from 'next/link';
 
 import { Button, Separator } from '@/components/ui';
@@ -39,10 +38,13 @@ const parityProductIds: { [key: number]: { id: string; price: number } } = {
   },
 };
 
-export default function PriceSection() {
-  const countryCookie = cookies().get('country');
-  const country = countryData[countryCookie?.value ?? DEFAULT_COUNTRY];
-  const parity = parityByCountry[countryCookie?.value ?? DEFAULT_COUNTRY];
+type PriceSectionProps = {
+  countryCode: string | null;
+};
+
+export default function PriceSection({ countryCode }: PriceSectionProps) {
+  const country = countryData[countryCode ?? DEFAULT_COUNTRY];
+  const parity = parityByCountry[countryCode ?? DEFAULT_COUNTRY];
   const hasParity = parity < 0.7;
 
   const adjustedParity = hasParity
