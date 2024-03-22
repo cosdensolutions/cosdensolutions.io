@@ -12,5 +12,10 @@ export async function GET(request: NextRequest) {
     cookies().set('convertKitSubscriberId', convertKitSubscriberId);
   }
 
-  return NextResponse.redirect(`${env.BASE_URL}/project-react`);
+  const responseUrl = new URL(`${env.BASE_URL}/project-react`);
+  searchParams.forEach((value, key) => {
+    responseUrl.searchParams.set(key, value);
+  });
+
+  return NextResponse.redirect(responseUrl);
 }
