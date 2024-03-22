@@ -53,8 +53,7 @@ export default function PriceSection({ countryCode }: PriceSectionProps) {
 
   const { id: productId, price } = parityProductIds[adjustedParity];
 
-  const checkoutUrl = new URL(env.NEXT_PUBLIC_TEACHABLE_CHECKOUT_URL);
-  checkoutUrl.searchParams.append('product_id', productId);
+  const checkoutUrl = `${env.NEXT_PUBLIC_TEACHABLE_CHECKOUT_URL}/${productId}/project-react`;
 
   return (
     <section
@@ -74,7 +73,7 @@ export default function PriceSection({ countryCode }: PriceSectionProps) {
         <span className="text-sm text-muted-foreground">+ local taxes</span>
       </div>
       <Button size="xl" asChild>
-        <Link href={checkoutUrl.toString()}>Enroll Now</Link>
+        <Link href={checkoutUrl}>Enroll Now</Link>
       </Button>
 
       <PriceSectionBenefits />
