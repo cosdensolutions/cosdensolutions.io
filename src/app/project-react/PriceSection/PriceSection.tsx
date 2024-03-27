@@ -1,3 +1,6 @@
+'use client';
+
+import { sendGAEvent } from '@next/third-parties/google';
 import { Check } from 'lucide-react';
 import Link from 'next/link';
 
@@ -9,7 +12,7 @@ import { countryData, parityByCountry } from '@/utils/purchaseParity';
 import PriceSectionParityDisclaimer from './PriceSectionParityDisclaimer';
 
 const FULL_PRICE = 197;
-const DEFAULT_COUNTRY = 'TR';
+const DEFAULT_COUNTRY = 'US';
 
 const parityProductIds: { [key: number]: { id: string; price: number } } = {
   [0.3]: {
@@ -72,7 +75,11 @@ export default function PriceSection({ countryCode }: PriceSectionProps) {
         <h3 className="text-4xl">${price}</h3>
         <span className="text-sm text-muted-foreground">+ local taxes</span>
       </div>
-      <Button size="xl" asChild>
+      <Button
+        size="xl"
+        asChild
+        onClick={() => sendGAEvent({ event: 'pr_checkout' })}
+      >
         <Link href={checkoutUrl}>Enroll Now</Link>
       </Button>
 

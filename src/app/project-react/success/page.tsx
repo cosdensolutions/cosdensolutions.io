@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import GoogleAnalyticsEvent from '@/components/GoogleAnalytics/GoogleAnalyticsEvent';
 import { Button } from '@/components/ui';
 import { env } from '@/utils/env';
 
@@ -14,6 +15,8 @@ export default async function ProjectReactSuccess({
 
   return (
     <main>
+      <GoogleAnalyticsEvent event={{ event: 'pr_purchase' }} />
+
       <section className="mb-8 space-y-8 text-center md:mx-auto md:mb-24 md:max-w-[70%]">
         <div className="mt-6 flex flex-col items-center justify-center gap-4 text-center md:mt-24">
           <h1 className="text-5xl font-bold md:text-7xl">You're in! 🎉</h1>
