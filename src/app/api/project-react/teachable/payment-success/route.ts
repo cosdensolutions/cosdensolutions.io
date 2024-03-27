@@ -7,6 +7,7 @@ import { env } from '@/utils/env';
 export async function GET(request: Request) {
   const searchParams = new URL(request.url).searchParams;
   const teachableToken = searchParams.get('teachable_token');
+  const isPreview = searchParams.get('is_preview') === 'true';
 
   if (!teachableToken) {
     return NextResponse.redirect(`${env.BASE_URL}`);
@@ -31,5 +32,7 @@ export async function GET(request: Request) {
     );
   }
 
-  return NextResponse.redirect(`${env.BASE_URL}/project-react/success`);
+  return NextResponse.redirect(
+    `${env.BASE_URL}/project-react/success?is_preview=${isPreview}`,
+  );
 }

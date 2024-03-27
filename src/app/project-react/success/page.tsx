@@ -4,13 +4,13 @@ import { Button } from '@/components/ui';
 import { env } from '@/utils/env';
 
 type ProjectReactSuccessProps = {
-  searchParams: { joinedDiscord?: string };
+  searchParams: { isPreview?: string; joinedDiscord?: string };
 };
 
 export default async function ProjectReactSuccess({
   searchParams,
 }: ProjectReactSuccessProps) {
-  const { joinedDiscord } = searchParams;
+  const { isPreview, joinedDiscord } = searchParams;
 
   return (
     <main>
@@ -34,25 +34,29 @@ export default async function ProjectReactSuccess({
             .
           </p>
         </div>
-        <div>
-          <h2>Community Access</h2>
-          <p className="text-muted-foreground md:text-lg">
-            {joinedDiscord === 'true'
-              ? "You've been added to the Discord!"
-              : 'As part of this course, you now have access to our Discord community. The community is open to the public, but by clicking the button below you will be given a special role that will give you access to the private channels for this course.'}
-          </p>
-        </div>
-        <Button asChild size="xl">
-          <Link
-            href={
-              joinedDiscord === 'true'
-                ? env.NEXT_PUBLIC_DISCORD_URL
-                : env.DISCORD_OAUTH_URL
-            }
-          >
-            {joinedDiscord === 'true' ? 'Open Discord' : 'Access Community'}
-          </Link>
-        </Button>
+        {!isPreview && (
+          <>
+            <div>
+              <h2>Community Access</h2>
+              <p className="text-muted-foreground md:text-lg">
+                {joinedDiscord === 'true'
+                  ? "You've been added to the Discord!"
+                  : 'As part of this course, you now have access to our Discord community. The community is open to the public, but by clicking the button below you will be given a special role that will give you access to the private channels for this course.'}
+              </p>
+            </div>
+            <Button asChild size="xl">
+              <Link
+                href={
+                  joinedDiscord === 'true'
+                    ? env.NEXT_PUBLIC_DISCORD_URL
+                    : env.DISCORD_OAUTH_URL
+                }
+              >
+                {joinedDiscord === 'true' ? 'Open Discord' : 'Access Community'}
+              </Link>
+            </Button>
+          </>
+        )}
       </section>
     </main>
   );
