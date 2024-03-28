@@ -5,17 +5,51 @@ import { Button } from '@/components/ui';
 import { env } from '@/utils/env';
 
 type ProjectReactSuccessProps = {
-  searchParams: { joinedDiscord?: string };
+  searchParams: {
+    currency: string;
+    joinedDiscord?: string;
+    final_price: string;
+    purchased: string;
+    sale_id: string;
+    tax_charge: string;
+  };
 };
+
+// http://localhost:3000/project-react/success?csidebar=true&currency=USD&final_price=4700&is_recurring=false&payment_method=stripe&purchased=5406874&purchased_at=1711049848&purchased_course_id=2469534&purchased_list_price=4700&sale_id=154824284&tax_charge=282&teachable_token=zmfXugteThnoKixAQajP&user_id=104419227
 
 export default async function ProjectReactSuccess({
   searchParams,
 }: ProjectReactSuccessProps) {
-  const { joinedDiscord } = searchParams;
+  const {
+    currency,
+    joinedDiscord,
+    final_price,
+    purchased,
+    sale_id,
+    tax_charge,
+  } = searchParams;
+
+  const finalPrice = final_price ? Number(final_price) / 100 : 0;
+  const taxCharge = tax_charge ? Number(tax_charge) / 100 : 0;
 
   return (
     <main>
-      <GoogleAnalyticsEvent event={{ event: 'pr_purchase' }} />
+      <GoogleAnalyticsEvent
+        event={{
+          event: 'purchase',
+          currency,
+          value: finalPrice,
+          transaction_id: sale_id,
+          tax: taxCharge,
+          items: [
+            {
+              item_id: purchased,
+              item_name: 'Project React',
+              price: finalPrice,
+            },
+          ],
+        }}
+      />
 
       <section className="mb-8 space-y-8 text-center md:mx-auto md:mb-24 md:max-w-[70%]">
         <div className="mt-6 flex flex-col items-center justify-center gap-4 text-center md:mt-24">

@@ -1,18 +1,20 @@
 'use client';
 
-import { sendGAEvent } from '@next/third-parties/google';
 import { Check } from 'lucide-react';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 import { Button, Separator } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { env } from '@/utils/env';
+import { sendGAEvent } from '@/utils/googleAnalytics';
 import { countryData, parityByCountry } from '@/utils/purchaseParity';
 
 import PriceSectionParityDisclaimer from './PriceSectionParityDisclaimer';
 
 const FULL_PRICE = 197;
 const DEFAULT_COUNTRY = 'US';
+const DEFAULT_CURRENCY = 'USD';
 
 const parityProductIds: { [key: number]: { id: string; price: number } } = {
   [0.3]: {
@@ -58,6 +60,15 @@ export default function PriceSection({ countryCode }: PriceSectionProps) {
 
   const checkoutUrl = `${env.NEXT_PUBLIC_TEACHABLE_CHECKOUT_URL}/${productId}/project-react`;
 
+  useEffect(() => {
+    sendGAEvent({
+      event: 'view_item',
+      currency: DEFAULT_CURRENCY,
+      value: price,
+      items: [{ item_id: productId, item_name: 'Project React', price }],
+    });
+  }, [price, productId]);
+
   return (
     <section
       id="pricing"
@@ -78,7 +89,20 @@ export default function PriceSection({ countryCode }: PriceSectionProps) {
       <Button
         size="xl"
         asChild
-        onClick={() => sendGAEvent({ event: 'pr_checkout' })}
+        onClick={() =>
+          sendGAEvent({
+            event: 'begin_checkout',
+            currency: DEFAULT_CURRENCY,
+            value: price,
+            items: [
+              {
+                item_id: productId,
+                item_name: 'Project React',
+                price,
+              },
+            ],
+          })
+        }
       >
         <Link href={checkoutUrl}>Enroll Now</Link>
       </Button>
