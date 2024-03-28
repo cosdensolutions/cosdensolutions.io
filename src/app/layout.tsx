@@ -1,4 +1,4 @@
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleTagManager } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
@@ -53,7 +53,7 @@ export default function RootLayout({
           <Footer />
         </div>
       </body>
-      <GoogleAnalytics gaId={env.GOOGLE_ANALYTICS_ID} />
+      <GoogleTagManager gtmId={env.GOOGLE_TAG_MANAGER_ID} />
     </html>
   );
 }

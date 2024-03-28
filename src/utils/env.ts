@@ -14,7 +14,7 @@ export const env = createEnv({
     DISCORD_CLIENT_SECRET: z.string(),
     DISCORD_OAUTH_URL: z.string(),
     DISCORD_REDIRECT_URL: z.string(),
-    GOOGLE_ANALYTICS_ID: z.string(),
+    GOOGLE_TAG_MANAGER_ID: z.string(),
     RESEND_API_KEY: z.string(),
   },
   client: {
@@ -37,7 +37,7 @@ export const env = createEnv({
     DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
     DISCORD_OAUTH_URL: process.env.DISCORD_OAUTH_URL,
     DISCORD_REDIRECT_URL: process.env.DISCORD_REDIRECT_URL,
-    GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID,
+    GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     NEXT_PUBLIC_DISCORD_URL: process.env.NEXT_PUBLIC_DISCORD_URL,
     NEXT_PUBLIC_INSTAGRAM_URL: process.env.NEXT_PUBLIC_INSTAGRAM_URL,
