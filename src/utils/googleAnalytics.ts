@@ -31,6 +31,6 @@ type PurchaseEvent = {
 
 export type GAEvent = ViewItemEvent | BeginCheckoutEvent | PurchaseEvent;
 
-export function sendGAEvent(event: GAEvent) {
-  _sendGAEvent(event);
+export function sendGAEvent({ event, ...args }: GAEvent) {
+  _sendGAEvent('event', event, args);
 }

@@ -4,6 +4,8 @@ import GoogleAnalyticsEvent from '@/components/GoogleAnalytics/GoogleAnalyticsEv
 import { Button } from '@/components/ui';
 import { env } from '@/utils/env';
 
+import { PRODUCT_NAME } from '../constants';
+
 type ProjectReactSuccessProps = {
   searchParams: {
     currency: string;
@@ -44,7 +46,7 @@ export default async function ProjectReactSuccess({
           items: [
             {
               item_id: purchased,
-              item_name: 'Project React',
+              item_name: PRODUCT_NAME,
               price: finalPrice,
             },
           ],

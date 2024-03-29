@@ -10,11 +10,13 @@ import { env } from '@/utils/env';
 import { sendGAEvent } from '@/utils/googleAnalytics';
 import { countryData, parityByCountry } from '@/utils/purchaseParity';
 
+import {
+  DEFAULT_COUNTRY,
+  DEFAULT_CURRENCY,
+  FULL_PRICE,
+  PRODUCT_NAME,
+} from '../constants';
 import PriceSectionParityDisclaimer from './PriceSectionParityDisclaimer';
-
-const FULL_PRICE = 197;
-const DEFAULT_COUNTRY = 'US';
-const DEFAULT_CURRENCY = 'USD';
 
 const parityProductIds: { [key: number]: { id: string; price: number } } = {
   [0.3]: {
@@ -65,7 +67,7 @@ export default function PriceSection({ countryCode }: PriceSectionProps) {
       event: 'view_item',
       currency: DEFAULT_CURRENCY,
       value: price,
-      items: [{ item_id: productId, item_name: 'Project React', price }],
+      items: [{ item_id: productId, item_name: PRODUCT_NAME, price }],
     });
   }, [price, productId]);
 
@@ -97,7 +99,7 @@ export default function PriceSection({ countryCode }: PriceSectionProps) {
             items: [
               {
                 item_id: productId,
-                item_name: 'Project React',
+                item_name: PRODUCT_NAME,
                 price,
               },
             ],
