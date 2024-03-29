@@ -32,5 +32,6 @@ type PurchaseEvent = {
 export type GAEvent = ViewItemEvent | BeginCheckoutEvent | PurchaseEvent;
 
 export function sendGAEvent({ event, ...args }: GAEvent) {
-  _sendGAEvent('event', event, args);
+  // Needs to wait for dataLayer to be available
+  setTimeout(() => _sendGAEvent('event', event, args), 500);
 }

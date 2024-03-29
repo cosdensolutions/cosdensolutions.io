@@ -13,8 +13,7 @@ export default function GoogleAnalyticsEvent({
   event,
 }: GoogleAnalyticsEventProps) {
   useEffect(() => {
-    // Needs to wait for dataLayer to be available
-    setTimeout(() => sendGAEvent(event), 100);
+    sendGAEvent(event);
   }, [event]);
 
   return null;
