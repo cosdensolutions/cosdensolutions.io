@@ -81,6 +81,6 @@ export async function GET(request: NextRequest) {
   }
 
   return NextResponse.redirect(
-    `${env.BASE_URL}/project-react/success?joinedDiscord=true`,
+    `${env.BASE_URL}/project-react/success?joined_discord=true`,
   );
 }

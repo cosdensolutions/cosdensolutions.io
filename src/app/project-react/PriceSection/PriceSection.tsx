@@ -1,15 +1,22 @@
+'use client';
+
 import { Check } from 'lucide-react';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 import { Button, Separator } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { env } from '@/utils/env';
+import { sendGAEvent } from '@/utils/googleAnalytics';
 import { countryData, parityByCountry } from '@/utils/purchaseParity';
 
+import {
+  DEFAULT_COUNTRY,
+  DEFAULT_CURRENCY,
+  FULL_PRICE,
+  PRODUCT_NAME,
+} from '../constants';
 import PriceSectionParityDisclaimer from './PriceSectionParityDisclaimer';
-
-const FULL_PRICE = 197;
-const DEFAULT_COUNTRY = 'TR';
 
 const parityProductIds: { [key: number]: { id: string; price: number } } = {
   [0.3]: {
@@ -55,6 +62,15 @@ export default function PriceSection({ countryCode }: PriceSectionProps) {
 
   const checkoutUrl = `${env.NEXT_PUBLIC_TEACHABLE_CHECKOUT_URL}/${productId}/project-react`;
 
+  useEffect(() => {
+    sendGAEvent({
+      event: 'view_item',
+      currency: DEFAULT_CURRENCY,
+      value: price,
+      items: [{ item_id: productId, item_name: PRODUCT_NAME, price }],
+    });
+  }, [price, productId]);
+
   return (
     <section
       id="pricing"
@@ -72,7 +88,24 @@ export default function PriceSection({ countryCode }: PriceSectionProps) {
         <h3 className="text-4xl">${price}</h3>
         <span className="text-sm text-muted-foreground">+ local taxes</span>
       </div>
-      <Button size="xl" asChild>
+      <Button
+        size="xl"
+        asChild
+        onClick={() =>
+          sendGAEvent({
+            event: 'begin_checkout',
+            currency: DEFAULT_CURRENCY,
+            value: price,
+            items: [
+              {
+                item_id: productId,
+                item_name: PRODUCT_NAME,
+                price,
+              },
+            ],
+          })
+        }
+      >
         <Link href={checkoutUrl}>Enroll Now</Link>
       </Button>
 

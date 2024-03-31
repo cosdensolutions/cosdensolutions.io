@@ -3,16 +3,15 @@ import { NextResponse } from 'next/server';
 
 import { env } from '@/utils/env';
 
-// Updates a ConvertKit subscriber to mark that they have purchased the course
 export async function GET(request: Request) {
   const searchParams = new URL(request.url).searchParams;
   const teachableToken = searchParams.get('teachable_token');
-  const isPreview = searchParams.get('is_preview') === 'true';
 
   if (!teachableToken) {
     return NextResponse.redirect(`${env.BASE_URL}`);
   }
 
+  // Updates a ConvertKit subscriber to mark that they have purchased the course
   const convertKitSubscriberId = cookies().get('convertKitSubscriberId');
   if (convertKitSubscriberId) {
     await fetch(
@@ -32,7 +31,10 @@ export async function GET(request: Request) {
     );
   }
 
-  return NextResponse.redirect(
-    `${env.BASE_URL}/project-react/success?is_preview=${isPreview}`,
-  );
+  const responseUrl = new URL(`${env.BASE_URL}/project-react/success`);
+  searchParams.forEach((value, key) => {
+    responseUrl.searchParams.set(key, value);
+  });
+
+  return NextResponse.redirect(responseUrl);
 }
