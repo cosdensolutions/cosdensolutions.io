@@ -2,8 +2,10 @@ import { type NextRequest, NextResponse } from 'next/server';
 
 import { ratelimit } from '@/utils/ratelimit';
 
+import { env } from './utils/env';
+
 export const config = {
-  matcher: ['/', '/contact', '/project-react'],
+  matcher: ['/', '/contact', '/project-react', '/project-react/success'],
 };
 
 export default async function middleware(request: NextRequest) {
@@ -17,6 +19,13 @@ export default async function middleware(request: NextRequest) {
           headers: requestHeaders,
         },
       });
+    }
+  }
+
+  if (request.nextUrl.pathname === '/project-react/success') {
+    const { searchParams } = request.nextUrl;
+    if (!searchParams.has('teachable_token')) {
+      return NextResponse.redirect(`${env.BASE_URL}/project-react`);
     }
   }
 
