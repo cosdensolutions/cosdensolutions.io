@@ -1,9 +1,8 @@
 'use client';
 
-import { sendGAEvent } from '@next/third-parties/google';
 import { useEffect } from 'react';
 
-import { GAEvent } from '@/utils/googleAnalytics';
+import { GAEvent, sendGAEvent } from '@/utils/googleAnalytics';
 
 type GoogleAnalyticsEventProps = {
   event: GAEvent;
