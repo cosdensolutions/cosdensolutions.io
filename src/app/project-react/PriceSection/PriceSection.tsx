@@ -4,11 +4,15 @@ import { Check } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect } from 'react';
 
+import GoogleAnalyticsButton from '@/components/GoogleAnalytics/GoogleAnalyticsButton';
 import { Button, Separator } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { env } from '@/utils/env';
 import { sendGAEvent } from '@/utils/googleAnalytics';
-import { countryData, parityByCountry } from '@/utils/purchaseParity';
+import {
+  countryData as countryDataObj,
+  getProductWithParity,
+} from '@/utils/purchaseParity';
 
 import {
   DEFAULT_COUNTRY,
@@ -18,47 +22,18 @@ import {
 } from '../constants';
 import PriceSectionParityDisclaimer from './PriceSectionParityDisclaimer';
 
-const parityProductIds: { [key: number]: { id: string; price: number } } = {
-  [0.3]: {
-    id: '5406874',
-    price: 47,
-  },
-  [0.4]: {
-    id: '5406873',
-    price: 77,
-  },
-  [0.5]: {
-    id: '5406872',
-    price: 97,
-  },
-  [0.6]: {
-    id: '5406871',
-    price: 127,
-  },
-  [0.7]: {
-    id: '5406864',
-    price: 147,
-  },
-  [1]: {
-    id: '5360142',
-    price: FULL_PRICE,
-  },
-};
-
 type PriceSectionProps = {
-  countryCode: string | null;
+  country: string | null;
 };
 
-export default function PriceSection({ countryCode }: PriceSectionProps) {
-  const country = countryData[countryCode ?? DEFAULT_COUNTRY];
-  const parity = parityByCountry[countryCode ?? DEFAULT_COUNTRY];
-  const hasParity = parity < 0.7;
+export default function PriceSection({ country }: PriceSectionProps) {
+  const countryData = countryDataObj[country ?? DEFAULT_COUNTRY];
 
-  const adjustedParity = hasParity
-    ? Math.max(Math.round(parity * 10) / 10, 0.3)
-    : 1;
+  const { id: productId, price } = getProductWithParity(
+    country ?? DEFAULT_COUNTRY,
+  );
 
-  const { id: productId, price } = parityProductIds[adjustedParity];
+  const hasParity = price < FULL_PRICE;
 
   const checkoutUrl = `${env.NEXT_PUBLIC_TEACHABLE_CHECKOUT_URL}/${productId}/project-react`;
 
@@ -80,34 +55,32 @@ export default function PriceSection({ countryCode }: PriceSectionProps) {
         <h3 className="text-3xl text-primary">Project React</h3>
         <p className="mb-0 text-muted-foreground">Full Course</p>
       </div>
-      {hasParity && <PriceSectionParityDisclaimer country={country} />}
+      {hasParity && <PriceSectionParityDisclaimer countryData={countryData} />}
       <div className="relative flex flex-col items-center">
         <h3 className="absolute -left-8 -top-2 mb-0 -rotate-45 text-xl font-medium text-red-500 line-through">
-          ${hasParity ? FULL_PRICE : '297'}
+          ${hasParity ? FULL_PRICE : FULL_PRICE + 100}
         </h3>
         <h3 className="text-4xl">${price}</h3>
         <span className="text-sm text-muted-foreground">+ local taxes</span>
       </div>
-      <Button
+      <GoogleAnalyticsButton
         size="xl"
         asChild
-        onClick={() =>
-          sendGAEvent({
-            event: 'begin_checkout',
-            currency: DEFAULT_CURRENCY,
-            value: price,
-            items: [
-              {
-                item_id: productId,
-                item_name: PRODUCT_NAME,
-                price,
-              },
-            ],
-          })
-        }
+        event={{
+          event: 'begin_checkout',
+          currency: DEFAULT_CURRENCY,
+          value: price,
+          items: [
+            {
+              item_id: productId,
+              item_name: PRODUCT_NAME,
+              price,
+            },
+          ],
+        }}
       >
         <Link href={checkoutUrl}>Enroll Now</Link>
-      </Button>
+      </GoogleAnalyticsButton>
 
       <PriceSectionBenefits />
       <Separator className="bg-foreground" />

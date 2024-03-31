@@ -3,17 +3,17 @@ import { CountryData } from '@/utils/purchaseParity';
 
 type PriceSectionParityDisclaimerProps = {
   className?: string;
-  country: CountryData;
+  countryData: CountryData;
 };
 
 export default function PriceSectionParityDisclaimer({
   className,
-  country,
+  countryData,
 }: PriceSectionParityDisclaimerProps) {
   return (
     <div className={cn('rounded-lg border-2 border-dashed p-8', className)}>
       <p className="font-semibold text-foreground">
-        It looks like you’re located in {country.emoji} {country.name}.
+        It looks like you’re located in {countryData.emoji} {countryData.name}.
       </p>
 
       <p className="mb-0">

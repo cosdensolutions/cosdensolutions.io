@@ -1,3 +1,46 @@
+import { FULL_PRICE } from '@/app/project-react/constants';
+
+export function getProductWithParity(country: string) {
+  const parity = parityByCountry[country];
+
+  const hasParity = parity < 0.7;
+
+  const adjustedParity = hasParity
+    ? Math.max(Math.round(parity * 10) / 10, 0.3)
+    : 1;
+
+  return parityProducts[adjustedParity];
+}
+
+export const parityProducts: {
+  [key: number]: { id: string; price: number };
+} = {
+  [0.3]: {
+    id: '5406874',
+    price: 47,
+  },
+  [0.4]: {
+    id: '5406873',
+    price: 77,
+  },
+  [0.5]: {
+    id: '5406872',
+    price: 97,
+  },
+  [0.6]: {
+    id: '5406871',
+    price: 127,
+  },
+  [0.7]: {
+    id: '5406864',
+    price: 147,
+  },
+  [1]: {
+    id: '5360142',
+    price: FULL_PRICE,
+  },
+};
+
 export const parityByCountry: { [key: string]: number } = {
   AD: 1,
   AE: 0.556266506929507,
