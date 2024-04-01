@@ -5,7 +5,13 @@ import { ratelimit } from '@/utils/ratelimit';
 import { env } from './utils/env';
 
 export const config = {
-  matcher: ['/', '/contact', '/project-react', '/project-react/success'],
+  matcher: [
+    '/',
+    '/contact',
+    '/project-react',
+    '/project-react/success',
+    '/project-react/preview/success',
+  ],
 };
 
 export default async function middleware(request: NextRequest) {
@@ -22,7 +28,12 @@ export default async function middleware(request: NextRequest) {
     }
   }
 
-  if (request.nextUrl.pathname === '/project-react/success') {
+  // Checks for `teachable_token` query parameter in the URL
+  if (
+    ['/project-react/success', '/project-react/preview/success'].includes(
+      request.nextUrl.pathname,
+    )
+  ) {
     const { searchParams } = request.nextUrl;
     if (!searchParams.has('teachable_token')) {
       return NextResponse.redirect(`${env.BASE_URL}/project-react`);

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 
 import GoogleAnalyticsButton from '@/components/GoogleAnalytics/GoogleAnalyticsButton';
-import { Button, Separator } from '@/components/ui';
+import { Separator } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { env } from '@/utils/env';
 import { sendGAEvent } from '@/utils/googleAnalytics';
