@@ -5,11 +5,11 @@ export function sendMetaAnalyticsEvent({ event, ...data }: MetaEvent) {
   if (process.env.NODE_ENV === 'development') {
     return;
   }
-  console.log('AFTER', event, data);
 
   import('react-facebook-pixel')
     .then(module => module.default)
     .then(ReactPixel => {
+      console.log('AFTER', event, data);
       ReactPixel.track(event, data);
     });
 }
