@@ -17,8 +17,8 @@ import TestimonialsSection from './TestimonialsSection';
 import VideoSection from './VideoSection';
 
 export default async function ProjectReactPage() {
-  const { country, ipAddress, path, userAgent } = await getUserDataHeaders();
-  const url = env.BASE_URL + path;
+  const { country, ipAddress, userAgent } = await getUserDataHeaders();
+  const url = env.BASE_URL + '/project-react';
 
   const { id: productId, price } = getProductWithParity(
     country ?? DEFAULT_COUNTRY,
@@ -74,7 +74,7 @@ export default async function ProjectReactPage() {
       <PriceSection
         country={country}
         ipAddress={ipAddress}
-        path={path}
+        path="/project-react"
         userAgent={userAgent}
       />
       <FaqSection />

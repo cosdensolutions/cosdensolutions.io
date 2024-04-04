@@ -23,8 +23,8 @@ type ProjectReactSuccessProps = {
 export default async function ProjectReactSuccess({
   searchParams,
 }: ProjectReactSuccessProps) {
-  const { ipAddress, path, userAgent } = await getUserDataHeaders();
-  const url = env.BASE_URL + path;
+  const { ipAddress, userAgent } = await getUserDataHeaders();
+  const url = env.BASE_URL + '/project-react/success';
 
   const {
     currency,

@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 
+import ClientOnly from '@/components/ClientOnly/ClientOnly';
 import { sendMetaAnalyticsEvent } from '@/utils/analytics/metaAnalytics';
 import { sendMetaConversionsApiEvent } from '@/utils/analytics/metaAnalyticsConversionsApi';
 import { MetaEvent } from '@/utils/analytics/types';
@@ -12,10 +13,15 @@ type AnalyticsEventProps = {
   metaEvent?: MetaEvent;
 };
 
-export default function AnalyticsEvent({
-  gaEvent,
-  metaEvent,
-}: AnalyticsEventProps) {
+export default function AnalyticsEvent(props: AnalyticsEventProps) {
+  return (
+    <ClientOnly>
+      <AnalyticsEventHandler {...props} />
+    </ClientOnly>
+  );
+}
+
+function AnalyticsEventHandler({ gaEvent, metaEvent }: AnalyticsEventProps) {
   useEffect(() => {
     if (gaEvent) {
       sendGAEvent(gaEvent);

@@ -2,6 +2,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
+import ClientOnly from '@/components/ClientOnly/ClientOnly';
 import Footer from '@/components/Footer';
 import MetaAnalytics from '@/components/MetaAnalytics/MetaAnalytics';
 import Navbar from '@/components/Navbar/Navbar';
@@ -55,7 +56,9 @@ export default function RootLayout({
         </div>
       </body>
       <GoogleAnalytics gaId={env.GOOGLE_ANALYTICS_ID} />
-      <MetaAnalytics pixelId={env.FACEBOOK_PIXEL_ID} />
+      <ClientOnly>
+        <MetaAnalytics pixelId={env.FACEBOOK_PIXEL_ID} />
+      </ClientOnly>
     </html>
   );
 }
