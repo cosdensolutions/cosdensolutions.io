@@ -12,6 +12,10 @@ export default function MetaAnalyticsInit({ pixelId }: MetaAnalyticsInitProps) {
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      return;
+    }
+
     import('react-facebook-pixel')
       .then(module => module.default)
       .then(ReactPixel => {
