@@ -1,14 +1,10 @@
-'use client';
-
 import { Check } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect } from 'react';
 
-import GoogleAnalyticsButton from '@/components/GoogleAnalytics/GoogleAnalyticsButton';
+import AnalyticsButton from '@/components/Analytics/AnalyticsButton';
 import { Separator } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { env } from '@/utils/env';
-import { sendGAEvent } from '@/utils/googleAnalytics';
 import {
   countryData as countryDataObj,
   getProductWithParity,
@@ -24,9 +20,17 @@ import PriceSectionParityDisclaimer from './PriceSectionParityDisclaimer';
 
 type PriceSectionProps = {
   country: string | null;
+  ipAddress: string;
+  path: string;
+  userAgent: string;
 };
 
-export default function PriceSection({ country }: PriceSectionProps) {
+export default function PriceSection({
+  country,
+  ipAddress,
+  path,
+  userAgent,
+}: PriceSectionProps) {
   const countryData = countryDataObj[country ?? DEFAULT_COUNTRY];
 
   const { id: productId, price } = getProductWithParity(
@@ -36,15 +40,6 @@ export default function PriceSection({ country }: PriceSectionProps) {
   const hasParity = price < FULL_PRICE;
 
   const checkoutUrl = `${env.NEXT_PUBLIC_TEACHABLE_CHECKOUT_URL}/${productId}/project-react`;
-
-  useEffect(() => {
-    sendGAEvent({
-      event: 'view_item',
-      currency: DEFAULT_CURRENCY,
-      value: price,
-      items: [{ item_id: productId, item_name: PRODUCT_NAME, price }],
-    });
-  }, [price, productId]);
 
   return (
     <section
@@ -63,10 +58,10 @@ export default function PriceSection({ country }: PriceSectionProps) {
         <h3 className="text-4xl">${price}</h3>
         <span className="text-sm text-muted-foreground">+ local taxes</span>
       </div>
-      <GoogleAnalyticsButton
+      <AnalyticsButton
         size="xl"
         asChild
-        event={{
+        gaEvent={{
           event: 'begin_checkout',
           currency: DEFAULT_CURRENCY,
           value: price,
@@ -78,9 +73,15 @@ export default function PriceSection({ country }: PriceSectionProps) {
             },
           ],
         }}
+        metaEvent={{
+          event: 'InitiateCheckout',
+          ipAddress,
+          sourceUrl: env.BASE_URL + path,
+          userAgent,
+        }}
       >
         <Link href={checkoutUrl}>Enroll Now</Link>
-      </GoogleAnalyticsButton>
+      </AnalyticsButton>
 
       <PriceSectionBenefits />
       <Separator className="bg-foreground" />

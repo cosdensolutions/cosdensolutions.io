@@ -29,13 +29,13 @@ type PurchaseEvent = {
   items: Item[];
 };
 
-export type GAEvent = ViewItemEvent | BeginCheckoutEvent | PurchaseEvent;
+export type GAEvent = BeginCheckoutEvent | PurchaseEvent | ViewItemEvent;
 
-export function sendGAEvent({ event, ...args }: GAEvent) {
+export function sendGAEvent({ event, ...data }: GAEvent) {
   if (process.env.NODE_ENV === 'development') {
     return;
   }
 
   // Needs to wait for dataLayer to be available
-  setTimeout(() => _sendGAEvent('event', event, args), 500);
+  setTimeout(() => _sendGAEvent('event', event, data), 500);
 }

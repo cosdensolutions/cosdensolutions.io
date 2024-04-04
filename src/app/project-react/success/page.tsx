@@ -1,8 +1,9 @@
 import Link from 'next/link';
 
-import GoogleAnalyticsEvent from '@/components/GoogleAnalytics/GoogleAnalyticsEvent';
+import AnalyticsEvent from '@/components/Analytics/AnalyticsEvent';
 import { Button } from '@/components/ui';
 import { env } from '@/utils/env';
+import { getUserDataHeaders } from '@/utils/server/userDataHeaders';
 
 import { PRODUCT_NAME } from '../constants';
 
@@ -22,6 +23,9 @@ type ProjectReactSuccessProps = {
 export default async function ProjectReactSuccess({
   searchParams,
 }: ProjectReactSuccessProps) {
+  const { ipAddress, path, userAgent } = await getUserDataHeaders();
+  const url = env.BASE_URL + path;
+
   const {
     currency,
     joined_discord,
@@ -36,8 +40,8 @@ export default async function ProjectReactSuccess({
 
   return (
     <main>
-      <GoogleAnalyticsEvent
-        event={{
+      <AnalyticsEvent
+        gaEvent={{
           event: 'purchase',
           currency,
           value: finalPrice,
@@ -50,6 +54,15 @@ export default async function ProjectReactSuccess({
               price: finalPrice,
             },
           ],
+        }}
+        metaEvent={{
+          event: 'Purchase',
+          eventId: sale_id,
+          currency,
+          ipAddress,
+          userAgent,
+          sourceUrl: url,
+          value: finalPrice,
         }}
       />
 

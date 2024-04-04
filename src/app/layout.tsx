@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
 import Footer from '@/components/Footer';
+import MetaAnalytics from '@/components/MetaAnalytics/MetaAnalytics';
 import Navbar from '@/components/Navbar/Navbar';
 import { env } from '@/utils/env';
 
@@ -54,6 +55,7 @@ export default function RootLayout({
         </div>
       </body>
       <GoogleAnalytics gaId={env.GOOGLE_ANALYTICS_ID} />
+      <MetaAnalytics pixelId={env.FACEBOOK_PIXEL_ID} />
     </html>
   );
 }
