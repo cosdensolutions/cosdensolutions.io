@@ -8,6 +8,6 @@ export function sendMetaAnalyticsEvent({ event, ...data }: MetaEvent) {
   import('react-facebook-pixel')
     .then(module => module.default)
     .then(ReactPixel => {
-      ReactPixel.track(event, data);
+      setTimeout(() => ReactPixel.track(event, data), 500);
     });
 }
