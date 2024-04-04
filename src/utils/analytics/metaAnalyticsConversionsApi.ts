@@ -7,6 +7,7 @@ import { env } from '@/utils/env';
 import { MetaEvent } from './types';
 
 export async function sendMetaConversionsApiEvent(event: MetaEvent) {
+  console.log('HERE', process.env.NODE_ENV);
   if (process.env.NODE_ENV === 'development') {
     return;
   }
@@ -38,4 +39,5 @@ export async function sendMetaConversionsApiEvent(event: MetaEvent) {
     [serverEvent],
   );
   eventRequest.execute();
+  console.log('AFTER', event);
 }
