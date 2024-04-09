@@ -98,7 +98,7 @@ function PriceSectionBenefits() {
     {
       title: 'The full Project React course',
       description:
-        '80+ video lessons of material teaching you everything we know about React from getting started all the way through to building a big and complex real-world project.',
+        '700+ minutes of course material teaching you everything we know about React from getting started all the way through to building a big and complex real-world project.',
     },
     {
       title: 'Lifetime access to updates',
@@ -111,9 +111,9 @@ function PriceSectionBenefits() {
         "You'll get access to private channels in our Discord community where you can ask questions, share your progress, and get help from instructors or other students.",
     },
     {
-      title: '14-day money-back guarantee',
+      title: '30-day money-back guarantee',
       description:
-        "If you're not satisfied with the course, you can request a refund within 14 days of purchase. No questions asked.",
+        "If you're not satisfied with the course, you can request a refund within 30 days of purchase. No questions asked.",
     },
     {
       title: 'Project React Extended (coming soon)',
