@@ -5,6 +5,7 @@ export * from './Dialog';
 export * from './Input';
 export * from './Label';
 export * from './Separator';
-export * from './SmoothLink';
 export * from './Sheet';
+export * from './SmoothLink';
+export * from './Toaster';
 export * from './Textarea';

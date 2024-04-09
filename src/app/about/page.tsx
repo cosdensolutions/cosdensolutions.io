@@ -15,7 +15,7 @@ export default function AboutPage() {
           />
         </div>
         <div className="md:w-[50%]">
-          <p className="text-2xl font-semibold">Hey!</p>
+          <p className="text-2xl font-semibold text-foreground">Hey!</p>
           <p>
             My name is Darius and I'm the founder of{' '}
             <span className="text-primary">

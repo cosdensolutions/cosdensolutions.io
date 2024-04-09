@@ -11,30 +11,19 @@ export default function ProjectDescriptionSection({
 }: ProjectDescriptionSectionProps) {
   return (
     <section className={cn(className)}>
-      <div>
-        <Image
-          className="w-full rounded-lg border"
-          src="/project-react-lp-project-files.jpg"
-          width={1000}
-          height={600}
-          alt='Project React course overview "The project you will build" section image'
-        />
-        <p className="mt-2 text-center text-sm">
-          Some of the files you will be working with in the project
-        </p>
-      </div>
-      <h2>The Project You'll Build</h2>
+      <h2>The project you'll build 👨🏻‍💻</h2>
       <div>
         <p>
-          In case it wasn't clear enough by now,{' '}
-          <span className="font-semibold">
-            you are going to be building one big project throughout the entire
-            course.
-          </span>{' '}
-          The project is a booking platform akin to AirBnB or Booking.com. You
-          will be guided step-by-step in each module to add more features to the
-          application and by the end of Module 8, you will have built and
-          deployed complete production-ready application with React.
+          In case it wasn't clear enough by now, you are going to be building
+          one big project throughout the entire course.
+        </p>
+        <p>
+          You will be guided step-by-step in each module to add more features to
+          the application and by the end, you will have built and deployed
+          complete production-ready application with React.
+        </p>
+        <p className="font-semibold text-primary">
+          The project is a booking platform akin to AirBnB or Booking.com.
         </p>
         <p>
           I chose a booking platform because it touches all of the core areas of
@@ -44,6 +33,7 @@ export default function ProjectDescriptionSection({
           listing's detail page, how to add a listing to your favorites, and how
           to put the entire application behind a sign in form.
         </p>
+        <h3 className="mb-4">Building one step at a time</h3>
         <p>
           We will start small, setting up the app and building the first
           components, and progressively add more and more features to the
@@ -61,9 +51,20 @@ export default function ProjectDescriptionSection({
           seconds, but not everyone knows how to fit it together and build a
           complex and architecturally sound system.
         </p>
-        <p>
-          <span className="font-semibold text-primary">Project React</span> will
-          teach you how and why.
+        <p className="font-semibold text-primary">
+          Project React will teach you how and why.
+        </p>
+      </div>
+      <div className="mt-8">
+        <Image
+          className="w-full rounded-lg border"
+          src="/project-react-lp-project-overview2.jpg"
+          width={1000}
+          height={600}
+          alt='Project React course overview "The project you will build" section image'
+        />
+        <p className="mt-2 text-center text-sm">
+          Implementing the listing details page component
         </p>
       </div>
     </section>

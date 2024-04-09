@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import AnalyticsButton from '@/components/Analytics/AnalyticsButton';
@@ -16,6 +17,7 @@ import {
   FULL_PRICE,
   PRODUCT_NAME,
 } from '../constants';
+import LastUpdated from '../LastUpdated';
 import PriceSectionParityDisclaimer from './PriceSectionParityDisclaimer';
 
 type PriceSectionProps = {
@@ -44,7 +46,7 @@ export default function PriceSection({
   return (
     <section
       id="pricing"
-      className="flex scroll-mt-8 flex-col items-center justify-center gap-8 rounded-lg bg-background-lighter p-4 py-8 md:p-8"
+      className="relative flex scroll-mt-8 flex-col items-center justify-center gap-8 rounded-lg bg-background-lighter p-4 py-8 md:p-8"
     >
       <div className="text-center">
         <h3 className="text-3xl text-primary">Project React</h3>
@@ -82,6 +84,7 @@ export default function PriceSection({
       >
         <Link href={checkoutUrl}>Enroll Now</Link>
       </AnalyticsButton>
+      <LastUpdated />
 
       <PriceSectionBenefits />
       <Separator className="bg-foreground" />
@@ -98,19 +101,24 @@ function PriceSectionBenefits() {
         '80+ video lessons of material teaching you everything we know about React from getting started all the way through to building a big and complex real-world project.',
     },
     {
-      title: 'Lifetime access to all the course material',
+      title: 'Lifetime access to updates',
       description:
         'You will have lifetime access to all the course material, including any updates and new content we add in the future.',
     },
     {
       title: 'Access to the Project React community',
       description:
-        "You'll get access to the Project React Discord community where you can ask questions, share your progress, and get help from other students and instructors.",
+        "You'll get access to private channels in our Discord community where you can ask questions, share your progress, and get help from instructors or other students.",
+    },
+    {
+      title: '14-day money-back guarantee',
+      description:
+        "If you're not satisfied with the course, you can request a refund within 14 days of purchase. No questions asked.",
     },
     {
       title: 'Project React Extended (coming soon)',
       description:
-        'The extended edition to Project React that will include lessons covering more advanced topics, new components, new pages, and advanced design patterns.',
+        "The extended edition will include lessons adding more functionality to the app. You'll build new components, add new functionality, and implement advanced design patterns.",
     },
   ];
 

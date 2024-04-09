@@ -172,13 +172,20 @@ export default function CourseStructureSection({
 
   return (
     <section className={cn(className)}>
-      <h2>Course Structure</h2>
+      <h2>Course Structure 📚</h2>
       <div className="mb-8">
         <p>
+          The course is organized into 8 modules, and in each module you will
+          learn some theory about React, and then immediately apply it to the
+          project.
+        </p>
+        <p>
           Each module is focused on a specific part of React and will contain a
-          series of lessons teaching you the required concepts. Then, at the end
-          of each module, you will have to implement what you have learnt in the
-          project, building upon the previous module.
+          series of lessons teaching you the required concepts.
+        </p>
+        <p>
+          Then, at the end of each module, you will have to implement what you
+          have learnt in the project, building upon the previous module.
         </p>
       </div>
       <div className="grid gap-12 pt-8 md:grid-cols-2 md:gap-24">
@@ -193,15 +200,13 @@ export default function CourseStructureSection({
                 isLast && 'opacity-50 grayscale',
               )}
             >
-              {module.image && (
-                <Image
-                  className="mx-auto mb-8 size-24 md:absolute md:-right-12 md:-top-12 md:size-[125px]"
-                  src={module.image}
-                  width={150}
-                  height={150}
-                  alt={`Project React course module ${index} image`}
-                />
-              )}
+              <Image
+                className="mx-auto mb-8 size-24 md:absolute md:-right-12 md:-top-12 md:size-[125px]"
+                src={module.image}
+                width={150}
+                height={150}
+                alt={`Project React course module ${index} image`}
+              />
               <h3 className="mb-4 text-primary">
                 {isLast ? 'X' : index}. {module.title}
               </h3>
