@@ -57,12 +57,12 @@ export default async function ProjectReactSuccess({
         }}
         metaEvent={{
           event: 'Purchase',
-          eventId: sale_id,
+          event_id: sale_id,
           currency,
-          ipAddress,
-          userAgent,
-          sourceUrl: url,
           value: finalPrice,
+          client_ip_address: ipAddress,
+          client_user_agent: userAgent,
+          event_source_url: url,
         }}
       />
 

@@ -1,8 +1,8 @@
 type BaseEvent = {
-  eventId: string;
-  ipAddress: string;
-  sourceUrl: string;
-  userAgent: string;
+  event_id: string;
+  client_ip_address: string;
+  event_source_url: string;
+  client_user_agent: string;
 };
 
 type ViewContentEvent = BaseEvent & {

@@ -8,7 +8,7 @@ import { GAEvent, sendGAEvent } from '@/utils/googleAnalytics';
 
 type AnalyticsButtonProps = ButtonProps & {
   gaEvent?: GAEvent;
-  metaEvent?: Omit<MetaEvent, 'eventId'>;
+  metaEvent?: Omit<MetaEvent, 'event_id'>;
 };
 
 export default function AnalyticsButton({
@@ -28,7 +28,10 @@ export default function AnalyticsButton({
         }
 
         if (metaEvent) {
-          sendMetaAnalyticsEvent({ ...metaEvent, eventId } as MetaEvent);
+          sendMetaAnalyticsEvent({
+            ...metaEvent,
+            event_id: eventId,
+          } as MetaEvent);
         }
       }}
     >

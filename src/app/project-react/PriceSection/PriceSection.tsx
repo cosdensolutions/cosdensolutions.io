@@ -1,5 +1,4 @@
 import { Check } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 import AnalyticsButton from '@/components/Analytics/AnalyticsButton';
@@ -77,9 +76,9 @@ export default function PriceSection({
         }}
         metaEvent={{
           event: 'InitiateCheckout',
-          ipAddress,
-          sourceUrl: env.BASE_URL + path,
-          userAgent,
+          client_ip_address: ipAddress,
+          event_source_url: env.BASE_URL + path,
+          client_user_agent: userAgent,
         }}
       >
         <Link href={checkoutUrl}>Enroll Now</Link>

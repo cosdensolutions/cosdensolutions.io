@@ -41,10 +41,10 @@ export default async function ProjectReactPage() {
         }}
         metaEvent={{
           event: 'ViewContent',
-          eventId: createEventId(),
-          ipAddress: ipAddress,
-          userAgent: userAgent,
-          sourceUrl: url,
+          event_id: createEventId(),
+          client_ip_address: ipAddress,
+          client_user_agent: userAgent,
+          event_source_url: url,
         }}
       />
 

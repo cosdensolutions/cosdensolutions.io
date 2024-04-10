@@ -18,13 +18,13 @@ export async function sendMetaConversionsApiEvent(event: MetaEvent) {
 
   const serverEvent = new MetaSdk.ServerEvent()
     .setEventName(event.event)
-    .setEventId(event.eventId)
+    .setEventId(event.event_id)
     .setEventTime(Math.floor(Date.now() / 1000))
     .setActionSource('website');
 
   const userData = new MetaSdk.UserData()
-    .setClientUserAgent(event.userAgent)
-    .setClientIpAddress(event.ipAddress);
+    .setClientUserAgent(event.client_user_agent)
+    .setClientIpAddress(event.client_ip_address);
   serverEvent.setUserData(userData);
 
   if (event.event === 'Purchase') {
