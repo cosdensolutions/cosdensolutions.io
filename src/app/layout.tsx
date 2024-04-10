@@ -7,6 +7,7 @@ import ClientOnly from '@/components/ClientOnly/ClientOnly';
 import Footer from '@/components/Footer';
 import MetaAnalytics from '@/components/MetaAnalytics/MetaAnalytics';
 import Navbar from '@/components/Navbar/Navbar';
+import PostHogProvider from '@/providers/PostHogProvider';
 import { env } from '@/utils/env';
 
 import './globals.css';
@@ -52,9 +53,11 @@ export default function RootLayout({
       <body className="min-h-screen bg-gradient-to-t from-background-lighter to-background bg-no-repeat text-white">
         <div className="container mx-auto">
           <CookiesProvider>
-            <Navbar />
-            <div className="mb-12 sm:mb-24">{children}</div>
-            <Footer />
+            <PostHogProvider>
+              <Navbar />
+              <div className="mb-12 sm:mb-24">{children}</div>
+              <Footer />
+            </PostHogProvider>
           </CookiesProvider>
         </div>
       </body>
