@@ -1,5 +1,7 @@
 'use client';
 
+import { useCookies } from 'next-client-cookies';
+
 import { Button, ButtonProps } from '@/components/ui';
 import { createEventId } from '@/utils/analytics/helpers';
 import { sendMetaAnalyticsEvent } from '@/utils/analytics/metaAnalytics';
@@ -17,6 +19,9 @@ export default function AnalyticsButton({
   metaEvent,
   ...rest
 }: AnalyticsButtonProps) {
+  const cookies = useCookies();
+  const fbc = cookies.get('_fbc');
+
   return (
     <Button
       {...rest}
@@ -30,6 +35,7 @@ export default function AnalyticsButton({
         if (metaEvent) {
           sendMetaAnalyticsEvent({
             ...metaEvent,
+            fbc,
             event_id: eventId,
           } as MetaEvent);
         }

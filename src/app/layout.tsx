@@ -1,6 +1,7 @@
 import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import { CookiesProvider } from 'next-client-cookies/server';
 
 import ClientOnly from '@/components/ClientOnly/ClientOnly';
 import Footer from '@/components/Footer';
@@ -50,9 +51,11 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-gradient-to-t from-background-lighter to-background bg-no-repeat text-white">
         <div className="container mx-auto">
-          <Navbar />
-          <div className="mb-12 sm:mb-24">{children}</div>
-          <Footer />
+          <CookiesProvider>
+            <Navbar />
+            <div className="mb-12 sm:mb-24">{children}</div>
+            <Footer />
+          </CookiesProvider>
         </div>
       </body>
       <GoogleAnalytics gaId={env.GOOGLE_ANALYTICS_ID} />

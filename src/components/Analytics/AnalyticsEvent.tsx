@@ -1,5 +1,6 @@
 'use client';
 
+import { useCookies } from 'next-client-cookies';
 import { useEffect } from 'react';
 
 import ClientOnly from '@/components/ClientOnly/ClientOnly';
@@ -22,16 +23,25 @@ export default function AnalyticsEvent(props: AnalyticsEventProps) {
 }
 
 function AnalyticsEventHandler({ gaEvent, metaEvent }: AnalyticsEventProps) {
+  const cookies = useCookies();
+  const fbc = cookies.get('_fbc');
+
   useEffect(() => {
     if (gaEvent) {
       sendGAEvent(gaEvent);
     }
 
     if (metaEvent) {
-      sendMetaAnalyticsEvent(metaEvent);
-      sendMetaConversionsApiEvent(metaEvent);
+      const event = {
+        ...metaEvent,
+        fbc,
+      } as MetaEvent;
+
+      sendMetaAnalyticsEvent(event);
+
+      sendMetaConversionsApiEvent(event);
     }
-  }, [gaEvent, metaEvent]);
+  }, [fbc, gaEvent, metaEvent]);
 
   return null;
 }

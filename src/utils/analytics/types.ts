@@ -1,4 +1,5 @@
 type BaseEvent = {
+  fbc?: string;
   event_id: string;
   client_ip_address: string;
   event_source_url: string;

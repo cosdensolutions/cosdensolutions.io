@@ -27,6 +27,7 @@
     "facebook-nodejs-business-sdk": "^19.0.2",
     "lucide-react": "^0.336.0",
     "next": "14.1.0",
+    "next-client-cookies": "^1.1.1",
     "next-themes": "^0.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
