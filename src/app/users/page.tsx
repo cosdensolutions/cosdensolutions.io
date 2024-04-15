@@ -1,4 +1,6 @@
-type User = {
+import UsersList from './UsersList';
+
+export type User = {
   id: number;
   name: string;
 };
@@ -11,9 +13,7 @@ export default async function UsersPage() {
   return (
     <main>
       <h1>Users</h1>
-      {users.map((user, index) => (
-        <div key={index}>{user.name}</div>
-      ))}
+      <UsersList users={users} />
     </main>
   );
 }
