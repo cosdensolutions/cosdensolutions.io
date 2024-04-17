@@ -1,5 +1,4 @@
-import Image from 'next/image';
-
+import ImageLightbox from '@/components/ImageLightbox/ImageLightbox';
 import { cn } from '@/lib/utils';
 
 type ProjectDescriptionSectionProps = {
@@ -11,7 +10,7 @@ export default function ProjectDescriptionSection({
 }: ProjectDescriptionSectionProps) {
   return (
     <section className={cn(className)}>
-      <h2>The project you'll build 👨🏻‍💻</h2>
+      <h2>👨🏻‍💻 The project you'll build</h2>
       <div>
         <p>
           In case it wasn't clear enough by now, you are going to be building
@@ -56,15 +55,15 @@ export default function ProjectDescriptionSection({
         </p>
       </div>
       <div className="mt-8">
-        <Image
+        <ImageLightbox
           className="w-full rounded-lg border"
-          src="/project-react-lp-project-overview2.jpg"
+          src="/project-react-lp-project-overview.jpg"
           width={1000}
-          height={600}
+          height={581}
           alt='Project React course overview "The project you will build" section image'
         />
-        <p className="mt-2 text-center text-sm">
-          Implementing the listing details page component
+        <p className="mt-2 text-center text-sm md:text-lg">
+          The project at the end of module 8
         </p>
       </div>
     </section>

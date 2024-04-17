@@ -7,5 +7,6 @@ export * from './Label';
 export * from './Separator';
 export * from './Sheet';
 export * from './SmoothLink';
+export * from './Tabs';
 export * from './Toaster';
 export * from './Textarea';

@@ -30,7 +30,7 @@ export default function FaqSection({ className }: FaqSectionProps) {
     {
       question: 'How is this course different from other courses?',
       answer:
-        'Simple as this: real-world project. This course is designed to teach you to code using React while showing you what a project in the real world looks like. Whether you end up in corporate, or a startup or decide to build something on your own, this course will prepare you to excel. I wouldn’t want anyone feeling like an imposter on their first day of work.',
+        'Simple as this: custom application. On top of the traditional course material you get, the custom application walks you through step-by-step with instructions on how to build a big project. It has all of the code and building blocks necessary and it makes building a project really trivial.',
     },
     {
       question: 'How is the course any different than your YouTube videos?',

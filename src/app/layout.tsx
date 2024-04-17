@@ -51,15 +51,15 @@ export default function RootLayout({
         <link rel="icon" type="image/png" href="/icon.png" sizes="32x32" />
       </head>
       <body className="min-h-screen bg-gradient-to-t from-background-lighter to-background bg-no-repeat text-white">
-        <div className="container mx-auto">
-          <CookiesProvider>
-            <PostHogProvider>
+        <CookiesProvider>
+          <PostHogProvider>
+            <div className="container mx-auto">
               <Navbar />
               <div className="mb-12 sm:mb-24">{children}</div>
               <Footer />
-            </PostHogProvider>
-          </CookiesProvider>
-        </div>
+            </div>
+          </PostHogProvider>
+        </CookiesProvider>
       </body>
       <GoogleAnalytics gaId={env.GOOGLE_ANALYTICS_ID} />
       <ClientOnly>

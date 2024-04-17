@@ -1,7 +1,13 @@
 import { Hammer, Video } from 'lucide-react';
 import Image from 'next/image';
 
-import { Separator } from '@/components/ui';
+import {
+  Separator,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@/components/ui';
 import { cn } from '@/lib/utils';
 
 type CourseStructureSectionProps = {
@@ -28,7 +34,14 @@ export default function CourseStructureSection({
         'Environment Variables',
         'Running the Project',
         'Working with the Project',
-        'Implementing Module 0',
+      ],
+      steps: [
+        'Introduction to the application',
+        'Navigating between steps',
+        'The Devbar and how it works',
+        'Working with code snippets',
+        'Changing between modules',
+        'Ready to start',
       ],
     },
     {
@@ -46,7 +59,14 @@ export default function CourseStructureSection({
         'Component Lifecycle',
         'Introduction to Hooks',
         'Styling and Tailwind',
-        'Implementing Module 1',
+      ],
+      steps: [
+        'Create the HomePage component',
+        'Add HomePage to App',
+        'Create the ListingList component',
+        'Create the ListingCard component',
+        'Update ListingList with ListingCard',
+        'Update HomePage with ListingList',
       ],
     },
     {
@@ -64,7 +84,14 @@ export default function CourseStructureSection({
         'Event Handler Best Practices',
         'The useState Hook',
         'Controlled and Uncontrolled Components',
-        'Implementing Module 2',
+      ],
+      steps: [
+        'Convert the static listings in HomePage to state',
+        'Create the ListingFilters component',
+        'Add state and event handlers to ListingFilters',
+        'Add a callback prop to ListingFilters',
+        'Add ListingFilters to HomePage',
+        'Create a callback to update the filters in HomePage',
       ],
     },
     {
@@ -82,7 +109,17 @@ export default function CourseStructureSection({
         'Data Fetching in React (part 2)',
         'Data Fetching in React (part 3)',
         'Data Fetching Best Practices',
-        'Implementing Module 3',
+      ],
+      steps: [
+        'Prepare HomePage for data fetching',
+        'Fetch listings in HomePage',
+        'Add a loading state to HomePage',
+        'Add an error state to HomePage',
+        'Add filters to HomePage',
+        'Implement an AbortController in HomePage',
+        'Update ListingCard with new data',
+        'Create the ListingCardImages component',
+        'Update ListingCard with ListingCardImages',
       ],
     },
     {
@@ -98,7 +135,20 @@ export default function CourseStructureSection({
         'React Router (part 2)',
         'React Router (part 3)',
         'Routing Best Practices',
-        'Implementing Module 4',
+      ],
+      steps: [
+        'Set up the Router component',
+        'Replace App with Router',
+        'Add HomePage as a child route',
+        'Add an Outlet to App',
+        'Create the ListingDetailsCard component',
+        'Create the ListingDetailsPage component',
+        'Add ListingDetailsPage to Router',
+        'Add a details link to ListingCard',
+        'Create the ListingDetailsCardImages component',
+        'Add ListingDetailsCardImages to ListingDetailsCard',
+        'Create the NotFoundPage component',
+        'Add NotFoundPage to router',
       ],
     },
     {
@@ -115,7 +165,18 @@ export default function CourseStructureSection({
         'Custom Hooks Best Practices',
         'Custom Components',
         'Component Best Practices',
-        'Implementing Module 5',
+      ],
+      steps: [
+        'Create the useFetch custom hook',
+        'Refactor HomePage with useFetch',
+        'Prevent an infinite loop in HomePage with useMemo',
+        'Prevent unnecessary re-renders of ListingFilters with useCallback',
+        'Wrap ListingFilters with memo',
+        'Refactor the ListingDetailsPage with useFetch',
+        'Create the DataRenderer component',
+        'Update HomePage with DataRenderer',
+        'Update ListingDetailsPage with DataRenderer',
+        'Add cache support to useFetch',
       ],
     },
     {
@@ -133,7 +194,23 @@ export default function CourseStructureSection({
         'Redux (part 3)',
         'Redux Custom Components',
         'Redux Best Practices',
-        'Implementing Module 6',
+      ],
+      steps: [
+        'Setup the Redux store',
+        'Connect Redux to React',
+        'Create the listings slice',
+        'Add the listings slice to the Redux store',
+        'Create the fetchListings async thunk',
+        'Create the fetchListings extra reducers',
+        'Refactor the HomePage with listingsSlice',
+        'Set up favorite listings',
+        'Create the ListingFavoritesPage component',
+        'Create the Navbar component',
+        'Add Navbar to App',
+        'Update Router to allow navigation to favorites',
+        'Create the ListingFavoriteButton component',
+        'Add ListingFavoriteButton to the ListingCard component',
+        'Add ListingFavoriteButton to the ListingDetailsCard component',
       ],
     },
     {
@@ -151,7 +228,24 @@ export default function CourseStructureSection({
         'Introduction to Authentication',
         'Authentication in React',
         'Authentication Best Practices',
-        'Implementing Module 7',
+      ],
+      steps: [
+        'Create the AuthProvider component',
+        'Add AuthProvider to the app',
+        'Fetch the access token in AuthProvider',
+        'Hide the Navbar when not signed in',
+        'Create the SignInPage component',
+        'Add the SignInPage to Router',
+        'Create the SignInForm component',
+        'Add SignInForm to SignInPage',
+        'Handle the SignInForm submission',
+        'Turn on authentication in env and sign in',
+        "Add the user's token to all requests",
+        'Refresh the token when expired',
+        'Create the Route component',
+        'Update all routes with Route',
+        'Redirect to / when signed in',
+        'Create the sign out button in Navbar',
       ],
     },
     {
@@ -160,6 +254,7 @@ export default function CourseStructureSection({
         'You will learn how to setup and deploy your React applications online for the entire world to see.',
       image: '/project-react-lp-deployment.png',
       lessons: ['Deploying to Vercel'],
+      steps: ['Installing the Vercel CLI', 'Running the vercel command'],
     },
     {
       title: 'Extended (coming soon)',
@@ -167,12 +262,13 @@ export default function CourseStructureSection({
         'You will go beyond what you have learnt in the previous modules and build many new features in the project using the tools you have learnt.',
       image: '/project-react-lp-extended.png',
       lessons: ['Coming soon'],
+      steps: ['Coming soon'],
     },
   ];
 
   return (
     <section className={cn(className)}>
-      <h2>Course Structure 📚</h2>
+      <h2>📚 Course Structure</h2>
       <div className="mb-8">
         <p>
           The course is organized into 8 modules, and in each module you will
@@ -212,27 +308,56 @@ export default function CourseStructureSection({
               </h3>
               <Separator className="mb-4 w-[80%] bg-primary" />
               <p className="mb-4 md:text-lg">{module.description}</p>
-              <div className="space-y-2 md:text-lg">
-                {module.lessons.map((lesson, lessonIndex) => {
-                  const isLastLesson =
-                    lessonIndex === module.lessons.length - 1;
-
-                  return (
-                    <div
-                      key={lesson}
-                      className="flex flex-row gap-2 text-muted-foreground"
-                    >
-                      <div className="flex flex-row gap-1">
-                        {isLastLesson && (
-                          <Hammer className="size-5 stroke-primary" />
-                        )}
-                        <Video className={cn('size-5 stroke-primary')} />
-                      </div>
-                      {lesson}
-                    </div>
-                  );
-                })}
-              </div>
+              <Tabs defaultValue="course">
+                <TabsList className="mb-4 grid w-full grid-cols-2">
+                  <TabsTrigger value="course">
+                    <Video className={cn('mr-2 size-5')} />
+                    Course
+                  </TabsTrigger>
+                  <TabsTrigger value="project">
+                    <Hammer className={cn('mr-2 size-5')} />
+                    Project
+                  </TabsTrigger>
+                </TabsList>
+                <TabsContent value="course">
+                  <div className="space-y-2 md:text-lg">
+                    {module.lessons.map(lesson => {
+                      return (
+                        <div
+                          key={lesson}
+                          className="flex flex-row gap-2 text-muted-foreground"
+                        >
+                          <div className="flex flex-row gap-1">
+                            <Video className={cn('size-5 stroke-primary')} />
+                          </div>
+                          {lesson}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </TabsContent>
+                <TabsContent value="project">
+                  <div className="space-y-2 md:text-lg">
+                    {module.steps.map(step => {
+                      return (
+                        <div
+                          key={step}
+                          className="flex flex-row gap-2 text-muted-foreground"
+                        >
+                          <div className="flex flex-row gap-1">
+                            <Hammer className="size-5 stroke-primary" />
+                          </div>
+                          <span
+                            dangerouslySetInnerHTML={{
+                              __html: step,
+                            }}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </TabsContent>
+              </Tabs>
             </div>
           );
         })}

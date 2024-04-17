@@ -2,15 +2,13 @@ import { cn } from '@/lib/utils';
 
 type VideoSectionProps = {
   className?: string;
+  src: string;
 };
 
-export default function VideoSection({ className }: VideoSectionProps) {
+export default function VideoSection({ className, src }: VideoSectionProps) {
   return (
     <section className={cn(className)}>
-      <iframe
-        className="aspect-video w-full"
-        src="https://youtube.com/embed/ONSgr0l8Hac?autoplay=0&loop=1"
-      />
+      <iframe className="aspect-video w-full" src={src} />
     </section>
   );
 }

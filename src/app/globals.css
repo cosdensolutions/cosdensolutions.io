@@ -26,7 +26,7 @@
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 240 3.7% 15.9%;
+    --muted: 240 0% 14%;
     --muted-foreground: 240 5% 74.9%;
 
     --accent: 240 3.7% 15.9%;
@@ -72,5 +72,26 @@
 
   li {
     @apply mb-2 list-inside list-disc;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .video-container iframe {
+    pointer-events: none;
+  }
+  .video-container iframe {
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 120px);
+  }
+  .video-foreground {
+    pointer-events: none;
   }
 }

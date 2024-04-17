@@ -57,7 +57,7 @@ export default function TestimonialsSection({
 
   return (
     <section className={cn('', className)}>
-      <h2>Testimonials ✨</h2>
+      <h2>✨ Testimonials</h2>
       <p>
         See what others are saying about this course. These are all testimonials
         from people who have no interest in saying how good the course is.

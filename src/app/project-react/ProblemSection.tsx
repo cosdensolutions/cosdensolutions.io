@@ -1,64 +1,46 @@
-import Image from 'next/image';
+import ImageLightbox from '@/components/ImageLightbox/ImageLightbox';
 
 export default function ProblemSection() {
   return (
-    <section>
-      <h2>Let's face it, learning React is hard 🙁</h2>
+    <section className="mx-auto max-w-[1100px]">
+      <h2>❌ Stop wasting time on tutorials</h2>
       <p>
-        When I got my first React developer job over 8 years ago,{' '}
-        <span className="font-semibold text-primary">I was so excited</span>.
+        The biggest mistake developers make when learning React is watching
+        tutorials.
       </p>
       <p>
-        I had spent the few months prior learning React on my own, watching
-        simple tutorials and whatever else I could find by searching online.
+        Tutorials might seem like a useful learning tool, but in reality they
+        barely scratch the surface of what React is.
+      </p>
+      <p className="font-semibold text-primary">
+        I don't know a single senior React developer who learnt through
+        tutorials.
       </p>
       <p>
-        On my first day, I was given access to the codebase and then told to
-        look through it and start getting familiar with it.
+        The senior developers I know are senior because of experience, not
+        because they can build a simple to-do app.
+      </p>
+      <h3 className="mb-4">Experience comes by building</h3>
+      <p>To become a true senior React developer, you need to build.</p>
+      <p>
+        You need to build big and complex projects. Projects that solve
+        difficult problems.
       </p>
       <p>
-        But when I opened up the code,{' '}
+        The problem is,{' '}
         <span className="font-semibold text-primary">
-          I was completely shocked
-        </span>
-        . This was nothing like I had ever seen before.
-      </p>
-      <p>
-        The codebase was big, confusing, and I couldn't understand most of it.
-        Panicking, I spent hours opening file after file trying to find
-        something that I had seen before but I found nothing.
-      </p>
-      <h3 className="mb-4">What happened?</h3>
-      <p>
-        I now realize that I had fallen into a trap. I naively thought that
-        watching tutorials and building simple todo apps was enough to teach me
-        React. It's not.
-      </p>
-      <p>
-        Watching tutorials made me feel like I was making progress, but in
-        reality, I was just running in circles doing the same things over and
-        over again.
-      </p>
-      <p>
-        For the next few years,{' '}
-        <span className="font-semibold text-primary">
-          I felt like an imposter.
+          how do you do that when you're just starting out?
         </span>
       </p>
-      <p>
-        Every job I got or project I worked on intimidated me. I never felt
-        confident to be able to contribute or to voice my opinions. And
-        honestly, that totally sucked.
-      </p>
-      <Image
+      <ImageLightbox
         className="mt-8 w-full rounded-lg border"
         src="/project-react-lp-tutorials.jpg"
-        width={1000}
-        height={600}
         alt='Project React course overview "Learning React is hard" section image'
+        width={1000}
+        height={581}
       />
       <p className="mt-2 text-center text-sm md:text-lg">
-        Tutorials promise a lot, but often don't deliver
+        The typical React tutorials search results
       </p>
     </section>
   );

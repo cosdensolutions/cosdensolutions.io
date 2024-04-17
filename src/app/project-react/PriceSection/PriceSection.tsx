@@ -100,6 +100,11 @@ function PriceSectionBenefits() {
         '700+ minutes of course material teaching you everything we know about React from getting started all the way through to building a big and complex real-world project.',
     },
     {
+      title: 'The custom application',
+      description:
+        'The codebase contains step-by-step instructions, custom components, API endpoints, and all of the building blocks you need to build a big project.',
+    },
+    {
       title: 'Lifetime access to updates',
       description:
         'You will have lifetime access to all the course material, including any updates and new content we add in the future.',

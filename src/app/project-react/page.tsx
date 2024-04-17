@@ -16,11 +16,8 @@ import HeroSection from './HeroSection';
 import InstructorInformationSection from './InstructorInformationSection';
 import ProblemSection from './ProblemSection';
 import ProjectDescriptionSection from './ProjectDescriptionSection';
-import QuoteSection from './QuoteSection';
 import SolutionSection from './SolutionSection';
 import TestimonialsSection from './TestimonialsSection';
-import UnderstandingSection from './UnderstandingSection';
-import VideoSection from './VideoSection';
 
 export default async function ProjectReactPage() {
   const { country, ipAddress, userAgent } = await getUserDataHeaders();
@@ -49,16 +46,7 @@ export default async function ProjectReactPage() {
       />
 
       <HeroSection />
-      <VideoSection />
-      <MetricsSection />
       <ProblemSection />
-      <UnderstandingSection />
-      <QuoteSection
-        quote={{
-          text: "No man's knowledge can go beyond his experience.",
-          author: 'John Locke',
-        }}
-      />
       <SolutionSection />
       <CtaButton />
       <CourseOverviewSection />
@@ -75,6 +63,7 @@ export default async function ProjectReactPage() {
         userAgent={userAgent}
       />
       <InstructorInformationSection />
+      <MetricsSection />
       <CommentsSection />
       <FaqSection />
     </main>

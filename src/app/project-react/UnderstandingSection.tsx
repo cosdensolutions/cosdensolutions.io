@@ -1,23 +1,35 @@
 export default function UnderstandingSection() {
   return (
     <section>
-      <h2>Unfortunately, tutorials aren't enough 😢</h2>
+      <h2>No one shows you how to build</h2>
       <p>
-        If you're reading this, then you are exactly where I was 8 years ago.
+        You might have the desire to build something great, but you don't know
+        how.
       </p>
       <p>
-        You've probably watched hours of tutorials and done many small projects.
-        But you still find yourself needing more.
-      </p>
-      <p className="font-semibold text-primary">It's not your fault.</p>
-      <p>
-        Unfortunately, there aren't many good resources out there to learn
-        React. Most content out there is shallow and doesn't actually teach you
-        anything real.
+        Every guide out there is shallow and never shows you how to build
+        something real.
       </p>
       <p>
-        To truly learn React, you need more than just tutorials. You need to
-        tackle something that has a bigger scope.
+        The projects they have you build are simple and often forget to handle
+        critical pieces.
+      </p>
+      <p className="font-semibold text-primary">
+        You have so many questions, and answers are difficult to find.
+      </p>
+      <p>
+        This is the reality of learning React today. The odds are stacked
+        against you.
+      </p>
+      <h3 className="mb-4">It's not your fault</h3>
+      <p>
+        As John Locke once famously said, "No man's knowledge can go beyond his
+        experience".
+      </p>
+      <p>If there's no one there to teach you, how can you learn?</p>
+      <p>
+        How can you ever hope of becoming a React developer if no one is showing
+        you how to do it?
       </p>
     </section>
   );
