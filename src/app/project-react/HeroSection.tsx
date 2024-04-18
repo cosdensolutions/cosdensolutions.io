@@ -15,12 +15,9 @@ export default function HeroSection() {
           <br /> as a <span className="text-primary">complete beginner</span>
         </h1>
         <p className="text-xl text-muted-foreground md:mx-auto md:w-[70%]">
-          We've built a course with a custom application that will teach you
-          step-by-step how to build{' '}
-          <span className="font-semibold text-primary">
-            big and complex applications
-          </span>{' '}
-          with React.
+          <span className="font-semibold text-primary">Project React</span> a
+          course with a custom application that will teach you step-by-step how
+          to build big and complex applications with React.
         </p>
         <Button size="xl" asChild>
           <SmoothLink href="#pricing">Enroll Now</SmoothLink>

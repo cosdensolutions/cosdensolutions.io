@@ -5,10 +5,6 @@ export default function ProblemSection() {
     <section className="mx-auto max-w-[1100px]">
       <h2>❌ Stop wasting time on tutorials</h2>
       <p>
-        The biggest mistake developers make when learning React is watching
-        tutorials.
-      </p>
-      <p>
         Tutorials might seem like a useful learning tool, but in reality they
         barely scratch the surface of what React is.
       </p>
