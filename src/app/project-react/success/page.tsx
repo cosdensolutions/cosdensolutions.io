@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { getCookies } from 'next-client-cookies/server';
 
 import AnalyticsEvent from '@/components/Analytics/AnalyticsEvent';
 import { Button } from '@/components/ui';
@@ -24,6 +25,8 @@ export default async function ProjectReactSuccess({
   searchParams,
 }: ProjectReactSuccessProps) {
   const { ipAddress, userAgent } = await getUserDataHeaders();
+  const cookies = getCookies();
+
   const url = env.BASE_URL + '/project-react/success';
 
   const {
@@ -59,6 +62,7 @@ export default async function ProjectReactSuccess({
           event: 'Purchase',
           event_id: sale_id,
           currency,
+          fbc: cookies.get('_fbc'),
           value: finalPrice,
           client_ip_address: ipAddress,
           client_user_agent: userAgent,
