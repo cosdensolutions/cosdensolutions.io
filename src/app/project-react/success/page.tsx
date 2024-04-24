@@ -7,6 +7,7 @@ import { env } from '@/utils/env';
 import { getUserDataHeaders } from '@/utils/server/userDataHeaders';
 
 import { PRODUCT_NAME } from '../constants';
+import PreventDuplicateVisits from './PreventDuplicateVisits';
 
 // http://localhost:3000/project-react/success?csidebar=true&currency=USD&final_price=4700&is_recurring=false&payment_method=stripe&purchased=5406874&purchased_at=1711049848&purchased_course_id=2469534&purchased_list_price=4700&sale_id=154824284&tax_charge=282&teachable_token=zmfXugteThnoKixAQajP&user_id=104419227
 
@@ -29,20 +30,15 @@ export default async function ProjectReactSuccess({
 
   const url = env.BASE_URL + '/project-react/success';
 
-  const {
-    currency,
-    joined_discord,
-    final_price,
-    purchased,
-    sale_id,
-    tax_charge,
-  } = searchParams;
+  const { currency, final_price, purchased, sale_id, tax_charge } =
+    searchParams;
 
   const finalPrice = final_price ? Number(final_price) / 100 : 0;
   const taxCharge = tax_charge ? Number(tax_charge) / 100 : 0;
 
   return (
     <main>
+      <PreventDuplicateVisits />
       <AnalyticsEvent
         gaEvent={{
           event: 'purchase',
@@ -93,21 +89,15 @@ export default async function ProjectReactSuccess({
         <div>
           <h2>Community Access</h2>
           <p className="text-muted-foreground md:text-lg">
-            {joined_discord === 'true'
-              ? "You've been added to the Discord!"
-              : 'As part of this course, you now have access to our Discord community. The community is open to the public, but by clicking the button below you will be given a special role that will give you access to the private channels for this course.'}
+            As part of this course, you now have access to our Discord
+            community. The community is open to the public, but you will be
+            given a special role that will give you access to the private
+            channels for this course. When you join, tag @dariuscosden and your
+            role will be added!
           </p>
         </div>
         <Button asChild size="xl">
-          <Link
-            href={
-              joined_discord === 'true'
-                ? env.NEXT_PUBLIC_DISCORD_URL
-                : env.DISCORD_OAUTH_URL
-            }
-          >
-            {joined_discord === 'true' ? 'Open Discord' : 'Access Community'}
-          </Link>
+          <Link href={env.NEXT_PUBLIC_DISCORD_URL}>Access Community</Link>
         </Button>
       </section>
     </main>
