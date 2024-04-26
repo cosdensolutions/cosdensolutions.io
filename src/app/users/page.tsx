@@ -1,5 +1,7 @@
 import { User } from '@/types/User';
 
+import UsersList from './UsersList/UsersList';
+
 export default async function UsersPage() {
   const response = await fetch('/api/users');
 
@@ -12,9 +14,7 @@ export default async function UsersPage() {
   return (
     <main>
       <h1>Users</h1>
-      {users.map((user, index) => (
-        <div key={index}>{user.name}</div>
-      ))}
+      <UsersList users={users} />
     </main>
   );
 }
