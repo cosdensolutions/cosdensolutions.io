@@ -2,7 +2,7 @@ import { format } from 'date-fns';
 import { CheckCircle2 } from 'lucide-react';
 
 export default function LastUpdated() {
-  const lastUpdated = new Date('2024-04-23');
+  const lastUpdated = new Date('2024-05-02');
 
   return (
     <div className="flex flex-row items-center justify-center gap-2 rounded-full text-green-500">
