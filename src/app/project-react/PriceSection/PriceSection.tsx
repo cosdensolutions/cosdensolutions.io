@@ -115,11 +115,6 @@ function PriceSectionBenefits() {
         "You'll get access to private channels in our Discord community where you can ask questions, share your progress, and get help from instructors or other students.",
     },
     {
-      title: '30-day money-back guarantee',
-      description:
-        "If you're not satisfied with the course, you can request a refund within 30 days of purchase. No questions asked.",
-    },
-    {
       title: 'Project React Extended (coming soon)',
       description:
         "The extended edition will include lessons adding more functionality to the app. You'll build new components, add new functionality, and implement advanced design patterns.",
