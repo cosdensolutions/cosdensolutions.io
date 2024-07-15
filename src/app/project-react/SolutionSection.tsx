@@ -3,12 +3,11 @@ import ImageLightbox from '@/components/ImageLightbox/ImageLightbox';
 export default function SolutionSection() {
   return (
     <section>
-      <h2>✅ Build through a custom application</h2>
+      <h2>🛠️ Project React will teach you how to build</h2>
       <p>What if I told you that there was a better way to learn React?</p>
       <p>
-        What if I gave you a custom application that had step-by-step
-        instructions on how to build a real project, with all of the building
-        blocks ready for you to use?
+        What if you had a mentor who would guide you through building a
+        real-world project with step-by-step instructions?
       </p>
       <p className="font-semibold text-primary">
         What if you could build a complex React application as a total beginner?
@@ -21,15 +20,21 @@ export default function SolutionSection() {
         Introducing{' '}
         <span className="font-semibold text-primary">Project React</span>
       </h3>
-      <p>As of today, you no longer have to imagine anything.</p>
-      <p>That custom application exists, and you can have it right now.</p>
+      <p>
+        As of today, you no longer have to imagine anything. You can start
+        building today.
+      </p>
+      <p>
+        Project React is going to walk you through step-by-step on how to build
+        a big and complex application with React.
+      </p>
       <p className="font-semibold text-primary">
         I spent months building it so that you could have the best possible
         learning experience.
       </p>
       <p>
-        It contains everything that you could possible need to build a real
-        React project.
+        It is efficient, effective, and will help you more than any tutorial
+        ever could.
       </p>
       <ImageLightbox
         className="mt-8 w-full rounded-lg border"

@@ -12,12 +12,13 @@ export default function HeroSection() {
         </h2>
         <h1 className="text-5xl font-bold md:text-7xl">
           Build a complex React project
-          <br /> as a <span className="text-primary">complete beginner</span>
+          <br /> as a <span className="text-primary">total beginner</span>
         </h1>
         <p className="text-xl text-muted-foreground md:mx-auto md:w-[70%]">
-          <span className="font-semibold text-primary">Project React</span> a
+          <span className="font-semibold text-primary">Project React</span> is a
           course with a custom application that will teach you step-by-step how
-          to build big and complex applications with React.
+          to build big and complex applications with React. No prior experience
+          needed.
         </p>
         <Button size="xl" asChild>
           <SmoothLink href="#pricing">Enroll Now</SmoothLink>
