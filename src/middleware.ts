@@ -8,6 +8,7 @@ export const config = {
   matcher: [
     '/',
     '/contact',
+    '/newsletter',
     '/project-react',
     '/project-react/success',
     '/project-react/preview/success',
@@ -15,6 +16,21 @@ export const config = {
 };
 
 export default async function middleware(request: NextRequest) {
+  if (request.nextUrl.pathname === '/newsletter') {
+    const params = new URLSearchParams(request.nextUrl.search);
+    const source = params.get('s');
+
+    if (source === 'ytd') {
+      return NextResponse.redirect(
+        'https://importreact.beehiiv.com/subscribe?utm_source=youtube&utm_medium=description',
+      );
+    } else if (source === 'ytc') {
+      return NextResponse.redirect(
+        'https://importreact.beehiiv.com/subscribe?utm_source=youtube&utm_medium=pinnedcomment',
+      );
+    }
+  }
+
   if (request.nextUrl.pathname === '/project-react') {
     const country = request.geo?.country;
     if (country) {
