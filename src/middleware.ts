@@ -1,4 +1,4 @@
-import { type NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 import { ratelimit } from '@/utils/ratelimit';
 
@@ -27,6 +27,10 @@ export default async function middleware(request: NextRequest) {
     } else if (source === 'ytc') {
       return NextResponse.redirect(
         'https://importreact.beehiiv.com/subscribe?utm_source=youtube&utm_medium=pinnedcomment',
+      );
+    } else if (source === 'lt') {
+      return NextResponse.redirect(
+        'https://importreact.beehiiv.com/subscribe?utm_source=linktree',
       );
     }
   }
