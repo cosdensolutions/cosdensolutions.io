@@ -17,21 +17,30 @@ export const config = {
 
 export default async function middleware(request: NextRequest) {
   if (request.nextUrl.pathname === '/newsletter') {
+    const utms: Record<string, string> = {
+      ytd: '?utm_source=youtube&utm_medium=description',
+      ytc: '?utm_source=youtube&utm_medium=pinnedcomment',
+      lt: '?utm_source=linktree',
+    };
+
+    const utmCampaigns: Record<string, string> = {
+      uqsr: '&utm_campaign=URL Params as State in React (Complete Tutorial)',
+    };
+
     const params = new URLSearchParams(request.nextUrl.search);
     const source = params.get('s');
 
-    if (source === 'ytd') {
-      return NextResponse.redirect(
-        'https://importreact.beehiiv.com/subscribe?utm_source=youtube&utm_medium=description',
-      );
-    } else if (source === 'ytc') {
-      return NextResponse.redirect(
-        'https://importreact.beehiiv.com/subscribe?utm_source=youtube&utm_medium=pinnedcomment',
-      );
-    } else if (source === 'lt') {
-      return NextResponse.redirect(
-        'https://importreact.beehiiv.com/subscribe?utm_source=linktree',
-      );
+    if (source) {
+      const [utmSource, utmCampaign] = source.split('-');
+      const utm = utms[utmSource];
+      const campaign = utmCampaigns[utmCampaign];
+
+      if (utm) {
+        const redirectUrl = `https://importreact.beehiiv.com/subscribe${utm}${
+          campaign || ''
+        }`;
+        return NextResponse.redirect(redirectUrl);
+      }
     }
   }
 
