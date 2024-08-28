@@ -26,8 +26,9 @@ export default async function middleware(request: NextRequest) {
     const utmCampaigns: Record<string, string> = {
       mdfr: '&utm_campaign=Modern Data Fetching in React (Complete Guide)',
       uqsr: '&utm_campaign=URL Params as State in React (Complete Tutorial)',
-      rockt: 'React Owner Components (and why you need to know them)',
-      rbar: 'Role-Based Authentication in React (Complete Tutorial)',
+      rockt:
+        '&utm_campaign=React Owner Components (and why you need to know them)',
+      rbar: '&utm_campaign=Role-Based Authentication in React (Complete Tutorial)',
     };
 
     const params = new URLSearchParams(request.nextUrl.search);
