@@ -30,6 +30,7 @@ export default async function middleware(request: NextRequest) {
       rockt:
         '&utm_campaign=React Owner Components (and why you need to know them)',
       rbar: '&utm_campaign=Role-Based Authentication in React (Complete Tutorial)',
+      w11r: '&utm_campaign=Windows 11 Clone Built in React (Code Review)',
     };
 
     const params = new URLSearchParams(request.nextUrl.search);
