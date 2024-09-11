@@ -26,6 +26,7 @@ export default async function middleware(request: NextRequest) {
     const utmCampaigns: Record<string, string> = {
       hocr: '&utm_campaign=HOC Pattern in React',
       mdfr: '&utm_campaign=Modern Data Fetching in React (Complete Guide)',
+      midp: '&utm_campaign=designpatterns',
       uqsr: '&utm_campaign=URL Params as State in React (Complete Tutorial)',
       rockt:
         '&utm_campaign=React Owner Components (and why you need to know them)',
