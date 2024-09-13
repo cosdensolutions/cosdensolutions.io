@@ -12,18 +12,6 @@ export default function ContactPage() {
             possible.
           </p>
         </div>
-        <div className="mb-4 text-center">
-          <h2 className="mb-2 text-xl">Company Details</h2>
-          <p className="text-sm text-muted-foreground">
-            Cosden Solutions SRL
-            <br />
-            Strada Primăverii, 41/1, Camera 2
-            <br />
-            307221, Chișoda, Romania
-            <br />
-            darius@cosdensolutions.io
-          </p>
-        </div>
         <div className="w-full md:mx-auto md:w-[50%]">
           <ContactForm />
         </div>
