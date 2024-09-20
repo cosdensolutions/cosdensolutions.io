@@ -33,6 +33,7 @@ export default async function middleware(request: NextRequest) {
         '&utm_campaign=React Owner Components (and why you need to know them)',
       rbar: '&utm_campaign=Role-Based Authentication in React (Complete Tutorial)',
       w11r: '&utm_campaign=Windows 11 Clone Built in React (Code Review)',
+      zvir: '&utm_campaign=Zod Validation in React (Complete Tutorial)',
     };
 
     const params = new URLSearchParams(request.nextUrl.search);
