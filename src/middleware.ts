@@ -28,10 +28,11 @@ export default async function middleware(request: NextRequest) {
       hocr: '&utm_campaign=HOC Pattern in React',
       mdfr: '&utm_campaign=Modern Data Fetching in React (Complete Guide)',
       midp: '&utm_campaign=designpatterns',
-      uqsr: '&utm_campaign=URL Params as State in React (Complete Tutorial)',
+      rbar: '&utm_campaign=Role-Based Authentication in React (Complete Tutorial)',
       rockt:
         '&utm_campaign=React Owner Components (and why you need to know them)',
-      rbar: '&utm_campaign=Role-Based Authentication in React (Complete Tutorial)',
+      rtkq: '&utm_campaign=RTK Query in React (Complete Tutorial)',
+      uqsr: '&utm_campaign=URL Params as State in React (Complete Tutorial)',
       w11r: '&utm_campaign=Windows 11 Clone Built in React (Code Review)',
       zvir: '&utm_campaign=Zod Validation in React (Complete Tutorial)',
     };
