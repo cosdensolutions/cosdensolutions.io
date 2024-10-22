@@ -24,6 +24,7 @@ export default async function middleware(request: NextRequest) {
     };
 
     const utmCampaigns: Record<string, string> = {
+      afnj: '&utm_campaign=Auth Flow in Next.js (Complete Tutorial)',
       brcw: '&utm_campaign=The Best React Code I Wrote (Code Review)',
       hocr: '&utm_campaign=HOC Pattern in React',
       mdfr: '&utm_campaign=Modern Data Fetching in React (Complete Guide)',
