@@ -52,17 +52,11 @@ export default function PriceSection({
         <p className="mb-0 text-muted-foreground">Full Course</p>
       </div>
       {hasParity && <PriceSectionParityDisclaimer countryData={countryData} />}
-      <span className="text-center font-bold text-red-500">
-        Get 50% off with code <span className="font-mono">BLACKFRIDAY</span>
-      </span>
       <div className="relative flex flex-col items-center">
         <h3 className="absolute -left-8 -top-2 mb-0 -rotate-45 text-xl font-medium text-red-500 line-through">
-          ${price}
+          ${hasParity ? FULL_PRICE : FULL_PRICE + 100}
         </h3>
-        <h3 className="text-4xl">
-          $
-          {(price / 2) % 1 === 0 ? `${price / 2}` : `${(price / 2).toFixed(2)}`}
-        </h3>
+        <h3 className="text-4xl">${price}</h3>
         <span className="text-sm text-muted-foreground">+ local taxes</span>
       </div>
       <AnalyticsButton
