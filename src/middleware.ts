@@ -30,6 +30,7 @@ export default async function middleware(request: NextRequest) {
       hocr: '&utm_campaign=HOC Pattern in React',
       mdfr: '&utm_campaign=Modern Data Fetching in React (Complete Guide)',
       midp: '&utm_campaign=designpatterns',
+      micc: '&utm_campaign=The Most Important Rule for Clean Code in React',
       psls: '&utm_campaign=Persist State with localStorage in React (Complete Tutorial)',
       rbar: '&utm_campaign=Role-Based Authentication in React (Complete Tutorial)',
       rockt:
