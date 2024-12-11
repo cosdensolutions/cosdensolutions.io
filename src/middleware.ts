@@ -36,6 +36,7 @@ export default async function middleware(request: NextRequest) {
       rockt:
         '&utm_campaign=React Owner Components (and why you need to know them)',
       rtkq: '&utm_campaign=RTK Query in React (Complete Tutorial)',
+      trir: '&utm_campaign=Tanstack Router in React (Complete Tutorial)',
       uqsr: '&utm_campaign=URL Params as State in React (Complete Tutorial)',
       w11r: '&utm_campaign=Windows 11 Clone Built in React (Code Review)',
       zvir: '&utm_campaign=Zod Validation in React (Complete Tutorial)',
