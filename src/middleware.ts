@@ -31,6 +31,7 @@ export default async function middleware(request: NextRequest) {
       mdfr: '&utm_campaign=Modern Data Fetching in React (Complete Guide)',
       midp: '&utm_campaign=designpatterns',
       micc: '&utm_campaign=The Most Important Rule for Clean Code in React',
+      mrcr: '&utm_campaign=Master Reusable Components in React',
       psls: '&utm_campaign=Persist State with localStorage in React (Complete Tutorial)',
       rbar: '&utm_campaign=Role-Based Authentication in React (Complete Tutorial)',
       rockt:
